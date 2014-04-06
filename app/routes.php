@@ -11,9 +11,21 @@
 |
 */
 
-Route::get('/', function()
-{
-    return View::make('hello');
-});
+Route::get('/', array(
+    'as' => '/',
+    function() {
+        return View::make('hello');
+    }
+));
+
+Route::any('/login', array(
+    'as'    => 'user/login',
+    'uses'  => 'UserController@loginAction'
+));
+
+Route::get('/profile', array(
+    'as'    => 'user/profile',
+    'uses'  => 'UserController@profileAction'
+));
 
 Route::resource('/post', 'PostController');
