@@ -10,5 +10,7 @@ An amauta was a wisdom teacher in the peruvian ancestral Inca culture and many o
 With Creative Commons Licence
 NC-BY-SA 
 
+May the force be whit us!
+
 Nick Palomino
 Raul Hugo
