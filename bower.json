@@ -1,0 +1,24 @@
+{
+  "name": "amautas",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Quipulabz/amautas",
+  "authors": [
+    "Nick B. Palomino <nbpalomino@gmail.com>"
+  ],
+  "description": "An teacher focus job board sistem",
+  "keywords": [
+    "teacher",
+    "peru",
+    "chosica",
+    "une"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/packages",
+    "test",
+    "tests"
+  ]
+}
