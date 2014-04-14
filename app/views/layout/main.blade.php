@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ URL::asset('packages/Flat-UI/bootstrap/css/bootstrap.css') }}">
     <!-- Loading Flat UI -->
     <link rel="stylesheet" href="{{ URL::asset('packages/Flat-UI/css/flat-ui.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('packages/Flat-UI/css/demo.css') }}">
+    <!-- <link rel="stylesheet" href="{{ URL::asset('packages/Flat-UI/css/demo.css') }}"> -->
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="{{ URL::asset('packages/Flat-UI/js/html5shiv.js') }}"></script>

@@ -23,6 +23,11 @@ Route::any('/login', array(
     'uses'  => 'UserController@loginAction'
 ));
 
+Route::any('/logout', array(
+    'as'    => 'user/logout',
+    'uses'  => 'UserController@logoutAction'
+));
+
 Route::get('/profile', array(
     'as'    => 'user/profile',
     'uses'  => 'UserController@profileAction'

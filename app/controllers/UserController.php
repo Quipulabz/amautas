@@ -91,7 +91,23 @@ class UserController extends BaseController {
      */
     public function profileAction()
     {
+        if (!Auth::check()) {
+            return Redirect::route('/');
+        }
+
         return View::make('user.profile');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function logoutAction()
+    {
+        Auth::logout();
+        return Redirect::route('/');
     }
 
     /**
@@ -129,7 +145,7 @@ class UserController extends BaseController {
             }
 
             $this->data['errors'] = new MessageBag(array(
-                'password' => array('Usuario y/o password incorrecto'),
+                'password' => array('Usuario y/o contraseña incorrecto'),
             ));
 
             $this->data['username'] = Input::get('username');
