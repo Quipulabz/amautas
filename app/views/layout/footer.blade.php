@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row-fluid">
         <p class="text-muted credit">Website built with <a href="http://laravel.com">Laravel</a> by <a target="_blank" href="http://twitter.com/stidges">Stidges</a> &amp; <a target="_blank" href="http://twitter.com/msurguy">Maks Surguy</a> | <a href="{{ url('about') }}">About</a>
         <span class="pull-right">
