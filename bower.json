@@ -20,5 +20,8 @@
     "public/packages",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "Flat-UI": "~2.1.3"
+  }
 }
