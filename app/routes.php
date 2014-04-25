@@ -33,4 +33,4 @@ Route::get('/profile', array(
     'uses'  => 'UserController@profileAction'
 ));
 
-Route::resource('/post', 'PostController');
+Route::resource('/empleos', 'EmpleoController');

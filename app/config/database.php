@@ -114,7 +114,7 @@ return array(
 		'cluster' => false,
 
 		'default' => array(
-			'host'     => '127.0.0.1',
+			'host'     => 'huascar.irsdar.0001.usw1.cache.amazonaws.com',
 			'port'     => 6379,
 			'database' => 0,
 		),
