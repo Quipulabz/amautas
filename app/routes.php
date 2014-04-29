@@ -18,11 +18,6 @@ Route::get('/', array(
     }
 ));
 
-Route::post('/api/repo/1234/update', function() {
-    exec('cd .. && git pull origin master');
-    return 'Ok';
-});
-
 Route::any('/login', array(
     'as'    => 'user/login',
     'uses'  => 'UserController@loginAction'
@@ -39,3 +34,8 @@ Route::get('/profile', array(
 ));
 
 Route::resource('/empleos', 'EmpleoController');
+
+Route::post('/api/repo/1234/update', function() {
+    exec('cd .. && git pull origin master');
+    return 'Ok';
+});
