@@ -34,8 +34,3 @@ Route::get('/profile', array(
 ));
 
 Route::resource('/empleos', 'EmpleoController');
-
-Route::post('/api/repo/1234/update', function() {
-    exec('cd .. && git pull origin master');
-    return 'Ok';
-});
