@@ -1,0 +1,16 @@
+#main-container {
+	min-height: 100%;
+	height: auto !important;
+	margin: 0 auto -50px;
+	padding: 0 0 60px;
+}
+
+#footer {
+	height: 60px;
+}
+
+.red 	{color: #E74C3C;}
+.blue 	{color: #3498DB;}
+.yellow {color: #F1C40F;}
+.purple {color: #9B59B6;}
+.green  {color: #2ECC71;}

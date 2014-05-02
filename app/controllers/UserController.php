@@ -4,11 +4,6 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends BaseController {
 
-    public function __construct()
-    {
-        $this->data = array();
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -143,7 +138,7 @@ class UserController extends BaseController {
                     return Redirect::route('user/profile');
                 }
             }
-
+            
             $this->data['errors'] = new MessageBag(array(
                 'password' => array('Usuario y/o contraseña incorrecto'),
             ));

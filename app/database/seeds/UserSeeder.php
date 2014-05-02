@@ -13,17 +13,20 @@ class UserSeeder extends DatabaseSeeder {
             array(
                 'username'  => 'nbpalomino',
                 'password'  => Hash::make('1234567u'),
-                'email'     => 'nbpalomino@gmail.com'
+                'email'     => 'nbpalomino@gmail.com',
+                'estado'    => 1
             ),
             array(
                 'username'  => 'malvarez',
                 'password'  => Hash::make('1234567u'),
-                'email'     => 'malvarez@gmail.com'
+                'email'     => 'malvarez@gmail.com',
+                'estado'    => 1
             ),
             array(
                 'username'  => 'raulhugo',
                 'password'  => Hash::make('1234567u'),
-                'email'     => 'raulhugo@gmail.com'
+                'email'     => 'raulhugo@gmail.com',
+                'estado'    => 1
             )
         );
 

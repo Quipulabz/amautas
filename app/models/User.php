@@ -17,7 +17,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password');
+	protected $hidden = ['password'];
 
 	/**
 	 * Get the unique identifier for the user.
@@ -78,5 +78,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 	    return 'remember_token';
 	}
+
+
+	/**
+	 * Usuario tiene muchos Empleos
+	 *
+	 * @var Empleo
+	 */
+	public function empleo()
+    {
+        return $this->hasMany('Empleo');
+    }
 
 }
