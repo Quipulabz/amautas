@@ -7,8 +7,7 @@ It's called Amautas.
 
 An amauta was a wisdom teacher in the peruvian ancestral Inca culture and many others.
 
-With Creative Commons Licence
-NC-BY-SA 
+Licence MIT 2014
 
 Nick Palomino
 Raul Hugo
