@@ -21,14 +21,9 @@ class UserSeeder extends DatabaseSeeder {
                 'email'     => 'malvarez@gmail.com'
             ),
             array(
-                'username'  => 'niwdepalm',
+                'username'  => 'raulhugo',
                 'password'  => Hash::make('1234567u'),
-                'email'     => 'niwdepalm@gmail.com'
-            ),
-            array(
-                'username'  => 'kate.ccopa',
-                'password'  => Hash::make('1234567u'),
-                'email'     => 'kate.ccopa@gmail.com'
+                'email'     => 'raulhugo@gmail.com'
             )
         );
 
