@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'amauta',
-			'username'  => 'root',
-			'password'  => '',
+			'host'      => 'pachamama.cxxzqahrfkbu.us-west-1.rds.amazonaws.com',
+			'database'  => 'pachamama',
+			'username'  => 'nbpalomino',
+			'password'  => '1234567u',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

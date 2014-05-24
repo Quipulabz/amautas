@@ -12,7 +12,7 @@ class CreateUserTable extends Migration {
      */
     public function up()
     {
-        Schema::create('users', function(Blueprint $table)
+        Schema::create('user', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('username')
@@ -22,14 +22,16 @@ class CreateUserTable extends Migration {
                 ->nullable()
                 ->default(null);
             $table->string('email')
+                ->unique()
                 ->nullable()
                 ->default(null);
-            $table->dateTime('created_at')
+            $table->boolean('estado')
+                ->default(1);
+            $table->string('remember_token')
                 ->nullable()
                 ->default(null);
-            $table->dateTime('updated_at')
-                ->nullable()
-                ->default(null);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -40,7 +42,7 @@ class CreateUserTable extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user');
     }
 
 }
