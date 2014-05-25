@@ -14,10 +14,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right ">
                 @if(Auth::check())
-                <li><a href="{{ URL::route('user/profile') }}">Perfil</a></li>
-                <li><a href="{{ URL::route('user/logout') }}">Log out</a></li>
+                <li><a href="{{ URL::route('user.profile') }}">Perfil</a></li>
+                <li><a href="{{ URL::route('user.logout') }}">Log out</a></li>
                 @else
-                <li class="active"><a href="{{ URL::route('user/login') }}">Log in</a></li>
+                <li class="active"><a href="{{ URL::route('user.login') }}">Log in</a></li>
                 @endif
             </ul>
             <!-- <form class="navbar-form navbar-right" action="#" role="search">

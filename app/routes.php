@@ -18,18 +18,23 @@ Route::get('/', array(
     }
 ));
 
-Route::any('/login', array(
-    'as'    => 'user/login',
-    'uses'  => 'UserController@loginAction'
+Route::get('/login', array(
+    'as'    => 'user.login',
+    'uses'  => 'LoginController@getLogin'
 ));
 
-Route::any('/logout', array(
-    'as'    => 'user/logout',
-    'uses'  => 'UserController@logoutAction'
+Route::post('/login', array(
+    'as'    => 'user.login',
+    'uses'  => 'LoginController@postLogin'
+));
+
+Route::get('/logout', array(
+    'as'    => 'user.logout',
+    'uses'  => 'LoginController@getLogout'
 ));
 
 Route::get('/profile', array(
-    'as'    => 'user/profile',
+    'as'    => 'user.profile',
     'uses'  => 'UserController@profileAction'
 ));
 

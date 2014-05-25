@@ -99,58 +99,58 @@ class UserController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function logoutAction()
-    {
-        Auth::logout();
-        return Redirect::route('/');
-    }
+    // public function logoutAction()
+    // {
+    //     Auth::logout();
+    //     return Redirect::route('/');
+    // }
 
     /**
      * Login a listing of the resource.
      *
      * @return Response
      */
-    public function loginAction()
-    {
-        $errors = new MessageBag();
+    // public function loginAction()
+    // {
+    //     $errors = new MessageBag();
 
-        if ($old = Input::old('errors')) {
-            $errors = $old;
-        }
+    //     if ($old = Input::old('errors')) {
+    //         $errors = $old;
+    //     }
 
-        $this->data['errors'] = $errors;
+    //     $this->data['errors'] = $errors;
 
-        if (Input::server('REQUEST_METHOD') == 'POST') {
-            
-            $validator = Validator::make(Input::all(), array(
-                'username' => 'required',
-                'password' => 'required'
-            ));  
+    //     if (Input::server('REQUEST_METHOD') == 'POST') {
 
-            if ($validator->passes()) {
+    //         $validator = Validator::make(Input::all(), array(
+    //             'username' => 'required',
+    //             'password' => 'required'
+    //         ));
 
-                $credentials = array(
-                        'username' => Input::get('username'),
-                        'password' => Input::get('password'),
-                    );
+    //         if ($validator->passes()) {
 
-                if (Auth::attempt($credentials)) {
-                    return Redirect::route('user/profile');
-                }
-            }
-            
-            $this->data['errors'] = new MessageBag(array(
-                'password' => array('Usuario y/o contraseña incorrecto'),
-            ));
+    //             $credentials = array(
+    //                     'username' => Input::get('username'),
+    //                     'password' => Input::get('password'),
+    //                 );
 
-            $this->data['username'] = Input::get('username');
+    //             if (Auth::attempt($credentials)) {
+    //                 return Redirect::route('user/profile');
+    //             }
+    //         }
 
-            return Redirect::route('user/login')->withInput($this->data);     
-        }
+    //         $this->data['errors'] = new MessageBag(array(
+    //             'password' => array('Usuario y/o contraseña incorrecto'),
+    //         ));
 
-        
-        return View::make('user.login', $this->data);
-    }
+    //         $this->data['username'] = Input::get('username');
+
+    //         return Redirect::route('user/login')->withInput($this->data);
+    //     }
+
+
+    //     return View::make('user.login', $this->data);
+    // }
 
 
 }

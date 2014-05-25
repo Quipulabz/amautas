@@ -15,9 +15,9 @@
     <div class="col-xs-3">
         <div class="tile tile-hot">
             <img src="{{ URL::asset('packages/Flat-UI/images/icons/svg/clipboard.svg') }}" alt="{{$empleo->titulo}}" class="tile-image">
-            <h3 class="tile-title">{{$empleo->titulo}}</h3>
+            <h3 class="tile-title">{{ str_limit($empleo->titulo, 20, '...') }}</h3>
             <p>{{ str_limit($empleo->descripcion, 50, '...') }}</p>
-            <a class="btn btn-primary btn-large btn-block" href="{{ route('empleos.show', $empleo->id.'--'.$empleo->slug ) }}">Postular</a>
+            <a class="btn btn-primary btn-embossed btn-large btn-block" href="{{ route('empleos.show', $empleo->id.'--'.$empleo->slug ) }}">Postular</a>
          </div>
     </div>
     @endforeach 
