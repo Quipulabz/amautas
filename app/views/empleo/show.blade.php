@@ -15,6 +15,7 @@
             <img src="{{ URL::asset('packages/Flat-UI/images/icons/svg/clipboard.svg') }}" alt="{{$empleo->titulo}}" class="tile-image">
             <h3 class="tile-title">{{$empleo->titulo}}</h3>
             <p>{{ $empleo->descripcion }}</p>
+            <small>{{$empleo->slug}}</small>
             <a class="btn btn-primary btn-large btn-block" href="{{ route('empleos.show', $empleo->id.'--'.$empleo->slug ) }}">Postular</a>
          </div>
     </div>

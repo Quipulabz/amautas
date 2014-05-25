@@ -14,7 +14,6 @@ class LoginController extends BaseController {
 
         if ($old = Input::old('errors')) {
             $errors = $old;
-            var_dump($old);
         }
         var_dump(Input::old());
         var_dump(Session::all());
@@ -43,7 +42,7 @@ class LoginController extends BaseController {
             if (Auth::attempt($credentials)) {
             	Session::put('user', Auth::user()->id);
             	Session::put('email', Auth::user()->email);
-            	Session::put('login_date', Carbon::now()->date());
+            	Session::put('login_date', Carbon::now());
 
                 return Redirect::intended(route('user.profile'));
             }
@@ -64,7 +63,7 @@ class LoginController extends BaseController {
 	public function getLogout()
 	{
 		Auth::logout();
-		Session::flash();
+		Session::flush();
         return Redirect::route('/');
 	}
 }

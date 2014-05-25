@@ -38,4 +38,6 @@ Route::get('/profile', array(
     'uses'  => 'UserController@profileAction'
 ));
 
+// Route::model('empleos', 'Empleo');
+
 Route::resource('empleos', 'EmpleoController');

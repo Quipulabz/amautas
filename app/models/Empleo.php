@@ -16,8 +16,8 @@ class Empleo extends Eloquent {
 	 *
 	 * @var array
 	 */
-	protected $guarded = ['id', 'slug'];
-	
+	protected $guarded = ['id'];
+
 
 	/**
 	 * Empleo pertenece a User
@@ -32,7 +32,7 @@ class Empleo extends Eloquent {
 
 
     public static function boot()
-    {    	
+    {
     	$slugify =  new Slugify();
 
     	parent::boot();

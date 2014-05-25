@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\MessageBag;
+
 class EmpleoController extends BaseController {
 
     /*
@@ -56,7 +58,7 @@ class EmpleoController extends BaseController {
      */
     public function show($id)
     {
-        list($id, $slug) = explode('--', $id);
+        // list($id, $slug) = explode('--', $id);
 
         $empleo = Empleo::find($id);
 
@@ -72,7 +74,12 @@ class EmpleoController extends BaseController {
      */
     public function edit($id)
     {
-        //
+        // list($id, $slug) = explode('--', $id);
+
+        $empleo = Empleo::find($id);
+
+        $data['empleo'] = $empleo;
+        return View::make('empleo.edit')->with($data);
     }
 
     /**
@@ -83,7 +90,22 @@ class EmpleoController extends BaseController {
      */
     public function update($id)
     {
-        //
+        $validator = Validator::make(Input::all(), ['titulo'=>'required', 'descripcion'=>'required']);
+
+        if ($validator->passes()) {
+
+            $empleo = Empleo::find($id);
+
+            $empleo->titulo      = Input::get('titulo');
+            $empleo->descripcion = Input::get('descripcion');
+            $empleo->save();
+
+            return Redirect::route('empleos.show', $id);
+        }
+
+        Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'Debe ingresar todos los campos']);
+
+        return Redirect::route('empleos.edit', $id);
     }
 
     /**
