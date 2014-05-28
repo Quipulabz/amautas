@@ -9,11 +9,10 @@
 
     </div>
 </div>
-<div>{{ var_dump(Input::old()) }}</div>
 <div class="row">
     <div class="col-md-5 col-md-push-3">
         {{ Form::open([
-                'route'     => ['empleos.update', $empleo->id, $empleo->slug],
+                'route'     => ['empleos.update', $empleo->id.'--'.$empleo->slug],
                 'method'    => 'PUT'
             ])
         }}
@@ -22,7 +21,7 @@
             <div class="input-group">
                 <span class="input-group-addon"><span class="fui-new"></span></span>
                 {{ Form::text('titulo', $empleo->titulo, [
-                        'class'         => 'form-control error',
+                        'class'         => 'form-control',
                         'placeholder'   => 'Se necesita docente de matemática'
                     ])
                 }}
@@ -44,13 +43,6 @@
                     'class' => 'btn btn-embossed btn-success btn-hg btn-block'
                 ])
             }}
-            <div class="text-center">
-                @if ( Session::has('mensaje') )
-                    <div class="alert {{ Session::get('mensaje')['tipo'] }}">
-                        <b>{{ Session::get('mensaje')['mensaje'] }}</b>
-                    </div>
-                @endif
-            </div>
         </div>
 
         {{ Form::close() }}

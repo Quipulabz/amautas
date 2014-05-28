@@ -16,7 +16,9 @@
             <h3 class="tile-title">{{$empleo->titulo}}</h3>
             <p>{{ $empleo->descripcion }}</p>
             <small>{{$empleo->slug}}</small>
-            <a class="btn btn-primary btn-large btn-block" href="{{ route('empleos.show', $empleo->id.'--'.$empleo->slug ) }}">Postular</a>
+            @if (Auth::check())
+                <a class="btn btn-danger btn-embossed btn-large btn-block" href="{{ route('empleos.edit', $empleo->id.'--'.$empleo->slug ) }}">Editar</a>
+            @endif
          </div>
     </div>
 </div>
