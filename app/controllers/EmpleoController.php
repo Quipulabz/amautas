@@ -16,6 +16,10 @@ class EmpleoController extends BaseController {
     |   Route::get('/', 'HomeController@showWelcome');
     |
     */
+    public function __construct()
+    {
+        $this->beforeFilter('auth', ['only' => ['edit', 'create']]);
+    }
 
     /**
      * Display a listing of the resource.
@@ -24,9 +28,10 @@ class EmpleoController extends BaseController {
      */
     public function index()
     {
-        $empleos = Empleo::all();
+        $empleos = Empleo::where('estado', '=', '1')->with('user')->get();
 
         $data['empleos'] = $empleos;
+        $data['total_empleos'] = $empleos->count();
         return View::make('empleo.index')->with($data);
     }
 
@@ -78,7 +83,7 @@ class EmpleoController extends BaseController {
     {
         list($id, $slug) = explode('--', $id_slug);
 
-        $empleo = Empleo::find($id);
+        $empleo = Empleo::with('user')->find($id);
 
         $data['empleo'] = $empleo;
         return View::make('empleo.show')->with($data);
@@ -94,7 +99,7 @@ class EmpleoController extends BaseController {
     {
         list($id, $slug) = explode('--', $id_slug);
 
-        $empleo = Empleo::find($id);
+        $empleo = Empleo::with('user')->find($id);
 
         if($empleo->user->id != Session::get('user')){
             Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'No puede editar este empleo']);
@@ -144,7 +149,21 @@ class EmpleoController extends BaseController {
      */
     public function destroy($id_slug)
     {
-        //
+        list($id, $slug) = explode('--', $id_slug);
+
+        $empleo = Empleo::with('user')->find($id);
+
+        if($empleo->user->id != Session::get('user')){
+            Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'No puede eliminar este empleo']);
+
+            return Redirect::route('empleos.edit', $id_slug);
+        }
+
+        $empleo->estado = 0;
+        $empleo->save();
+
+        Session::flash('mensaje', ['tipo'=>'alert-success', 'mensaje'=>'Se eliminó correctamente el empleo :)']);
+        return Redirect::route('empleos.index');
     }
 
 }

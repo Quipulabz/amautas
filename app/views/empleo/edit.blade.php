@@ -4,15 +4,11 @@
 <div class="row">
     <div class="col-md-6 col-md-push-3 col-sm-6 col-sm-push-3">
         <div class="text-center">
-            <h2>{{$empleo->titulo}}</h2>
+            <h1>{{$empleo->titulo}}</h1>
         </div>
-
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-5 col-md-push-3">
         {{ Form::open([
                 'route'     => ['empleos.update', $empleo->id.'--'.$empleo->slug],
+                'autocomplete' => 'off',
                 'method'    => 'PUT'
             ])
         }}
@@ -33,7 +29,7 @@
                 <span class="input-group-addon"><span class="fui-chat"></span></span>
                 {{ Form::textarea('descripcion', $empleo->descripcion, [
                         'class'         => 'form-control',
-                        'placeholder'   => 'blah blah'
+                        'placeholder'   => 'Prestigiosa Institución Educativa está en busca de un docente de matemática'
                     ])
                 }}
             </div>
@@ -44,8 +40,32 @@
                 ])
             }}
         </div>
-
         {{ Form::close() }}
+        <br>
+        <div class="row">
+            <div class="col-sm-3 pull-left">
+                {{ Form::open([
+                        'route'     => ['empleos.destroy', $empleo->id.'--'.$empleo->slug],
+                        'method'    => 'DELETE'
+                    ])
+                }}
+                    {{ Form::submit('Eliminar', [
+                        'class' => 'btn btn-danger btn-xs pull-left quipu_tt',
+                        'data-placement'    => "top",
+                        'title' => "Puede recuperar los empleos eliminados"
+                        ])
+                    }}
+                {{ Form::close() }}
+            </div>
+        </div>
     </div>
 </div>
+@stop
+
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('input.quipu_tt').tooltip({'trigger':'hover'})
+    });
+</script>
 @stop

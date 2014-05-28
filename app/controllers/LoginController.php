@@ -15,8 +15,6 @@ class LoginController extends BaseController {
         if ($old = Input::old('errors')) {
             $errors = $old;
         }
-        var_dump(Input::old());
-        var_dump(Session::all());
 
         $data['errors'] = $errors;
 

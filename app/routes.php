@@ -11,6 +11,29 @@
 |
 */
 
+Route::group(['before'=>'auth'], function(){
+
+    Route::get('/logout', array(
+        'as'    => 'user.logout',
+        'uses'  => 'LoginController@getLogout'
+    ));
+
+    Route::get('/profile', array(
+        'as'    => 'user.profile',
+        'uses'  => 'UserController@profileAction'
+    ));
+
+});
+
+Route::group(['before'=>'guest'], function(){
+
+    Route::get('/login', array(
+        'as'    => 'user.login',
+        'uses'  => 'LoginController@getLogin'
+    ));
+
+});
+
 Route::get('/', array(
     'as' => '/',
     function() {
@@ -18,24 +41,9 @@ Route::get('/', array(
     }
 ));
 
-Route::get('/login', array(
-    'as'    => 'user.login',
-    'uses'  => 'LoginController@getLogin'
-));
-
 Route::post('/login', array(
     'as'    => 'user.login',
     'uses'  => 'LoginController@postLogin'
-));
-
-Route::get('/logout', array(
-    'as'    => 'user.logout',
-    'uses'  => 'LoginController@getLogout'
-));
-
-Route::get('/profile', array(
-    'as'    => 'user.profile',
-    'uses'  => 'UserController@profileAction'
 ));
 
 // Route::model('empleos', 'Empleo');

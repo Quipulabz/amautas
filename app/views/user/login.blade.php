@@ -41,13 +41,6 @@
                 ])
             }}
             <a class="login-link" href="#">Perdiste tu contraseña?</a>
-            <div class="text-center">
-                @if ($error = $errors->first('password'))
-                    <div class="alert alert-danger">
-                        <b>{{ $error }}</b>
-                    </div>
-                @endif
-            </div>
         </div>
         {{ Form::close() }}
     </div>
