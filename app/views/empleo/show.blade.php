@@ -6,17 +6,16 @@
         <div class="text-center">
             <h2>{{$empleo->titulo}}</h2>
         </div>
-
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-3">
         <div class="tile tile-hot">
             <img src="{{ URL::asset('packages/Flat-UI/images/icons/svg/clipboard.svg') }}" alt="{{$empleo->titulo}}" class="tile-image">
             <h3 class="tile-title">{{$empleo->titulo}}</h3>
-            <p>{{ $empleo->descripcion }}</p>
-            <a class="btn btn-primary btn-large btn-block" href="{{ route('empleos.show', $empleo->id.'--'.$empleo->slug ) }}">Postular</a>
-         </div>
+            <p>{{ $empleo->descripcion }}<br>
+            <span class="label label-primary pull-right">Creado {{$empleo->created_at->diffForHumans()}}</span>
+            </p>
+            @if ($empleo->user->id == Session::get('user'))
+                <a class="btn btn-danger btn-embossed btn-large btn-block" href="{{ route('empleos.edit', $empleo->id.'--'.$empleo->slug ) }}">Editar</a>
+            @endif
+        </div>
     </div>
 </div>
 @stop

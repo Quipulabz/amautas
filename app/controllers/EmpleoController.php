@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\MessageBag;
+
 class EmpleoController extends BaseController {
 
     /*
@@ -14,6 +16,10 @@ class EmpleoController extends BaseController {
     |   Route::get('/', 'HomeController@showWelcome');
     |
     */
+    public function __construct()
+    {
+        $this->beforeFilter('auth', ['only' => ['edit', 'create']]);
+    }
 
     /**
      * Display a listing of the resource.
@@ -22,9 +28,10 @@ class EmpleoController extends BaseController {
      */
     public function index()
     {
-        $empleos = Empleo::all();
+        $empleos = Empleo::where('estado', '=', '1')->with('user')->get();
 
         $data['empleos'] = $empleos;
+        $data['total_empleos'] = $empleos->count();
         return View::make('empleo.index')->with($data);
     }
 
@@ -35,7 +42,7 @@ class EmpleoController extends BaseController {
      */
     public function create()
     {
-        //
+        return View::make('empleo.create');
     }
 
     /**
@@ -45,7 +52,25 @@ class EmpleoController extends BaseController {
      */
     public function store()
     {
-        //
+        $validator = Validator::make(Input::all(), ['titulo'=>'required', 'descripcion'=>'required']);
+
+        if ($validator->passes()) {
+
+            $empleo = new Empleo;
+
+            $empleo->titulo         = Input::get('titulo');
+            $empleo->descripcion    = Input::get('descripcion');
+            $empleo->user_id        = Session::get('user');
+            $empleo->save();
+
+            Session::flash('mensaje', ['tipo'=>'alert-success', 'mensaje'=>'Se creó correctamente']);
+
+            return Redirect::route('empleos.index');
+        }
+
+        Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'Debe ingresar todos los campos']);
+
+        return Redirect::route('empleos.create')->withInput();
     }
 
     /**
@@ -54,11 +79,11 @@ class EmpleoController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($id_slug)
     {
-        list($id, $slug) = explode('--', $id);
+        list($id, $slug) = explode('--', $id_slug);
 
-        $empleo = Empleo::find($id);
+        $empleo = Empleo::with('user')->find($id);
 
         $data['empleo'] = $empleo;
         return View::make('empleo.show')->with($data);
@@ -70,9 +95,20 @@ class EmpleoController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit($id_slug)
     {
-        //
+        list($id, $slug) = explode('--', $id_slug);
+
+        $empleo = Empleo::with('user')->find($id);
+
+        if($empleo->user->id != Session::get('user')){
+            Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'No puede editar este empleo']);
+
+            return Redirect::route('empleos.index');
+        }
+
+        $data['empleo'] = $empleo;
+        return View::make('empleo.edit')->with($data);
     }
 
     /**
@@ -81,9 +117,28 @@ class EmpleoController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id_slug)
     {
-        //
+        list($id, $slug) = explode('--', $id_slug);
+
+        $validator = Validator::make(Input::all(), ['titulo'=>'required', 'descripcion'=>'required']);
+
+        if ($validator->passes()) {
+
+            $empleo = Empleo::find($id);
+
+            $empleo->titulo      = Input::get('titulo');
+            $empleo->descripcion = Input::get('descripcion');
+            $empleo->save();
+
+            Session::flash('mensaje', ['tipo'=>'alert-success', 'mensaje'=>'Se actualizó correctamente']);
+
+            return Redirect::route('empleos.index');
+        }
+
+        Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'Debe ingresar todos los campos']);
+
+        return Redirect::route('empleos.edit', $id_slug);
     }
 
     /**
@@ -92,9 +147,23 @@ class EmpleoController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id_slug)
     {
-        //
+        list($id, $slug) = explode('--', $id_slug);
+
+        $empleo = Empleo::with('user')->find($id);
+
+        if($empleo->user->id != Session::get('user')){
+            Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'No puede eliminar este empleo']);
+
+            return Redirect::route('empleos.edit', $id_slug);
+        }
+
+        $empleo->estado = 0;
+        $empleo->save();
+
+        Session::flash('mensaje', ['tipo'=>'alert-success', 'mensaje'=>'Se eliminó correctamente el empleo :)']);
+        return Redirect::route('empleos.index');
     }
 
 }

@@ -11,7 +11,9 @@
         <h4><span class="fui-user"></span> {{ Auth::user()->username }}</h4>
         <h4><span class="fui-mail"></span> {{ Auth::user()->email }}</h4>
         <h4><span class="fui-time"></span> {{ Auth::user()->created_at }}</h4>
+        <h4><span class="fui-time"></span> {{ Session::get('login_date')->diffForHumans() }}</h4>
         <p>This is your profile page</p>
+        <span>{{ var_dump(Session::all()) }}</span>
     </div>
 </div>
 @stop
