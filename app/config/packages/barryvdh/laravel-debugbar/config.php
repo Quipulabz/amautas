@@ -13,7 +13,7 @@ return array(
      |
      */
 
-    'enabled' => Config::get('app.debug'),
+    'enabled' => false,//Config::get('app.debug'),
 
     /*
      |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return array(
      |
      */
 
-    'capture_ajax' => true,
+    'capture_ajax' => false,//true
 
     /*
      |--------------------------------------------------------------------------

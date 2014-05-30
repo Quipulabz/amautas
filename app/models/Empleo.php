@@ -1,6 +1,6 @@
 <?php
 
-use Quipulabz\Helper\Slugify;
+// use Quipulabz\Helper\Slugify;
 
 class Empleo extends Eloquent {
 
@@ -33,13 +33,10 @@ class Empleo extends Eloquent {
 
     public static function boot()
     {
-    	$slugify =  new Slugify();
-
     	parent::boot();
 
-    	static::saving(function($empleo) use ($slugify)
-        {
-            $empleo->slug = $slugify->make($empleo->titulo);
+    	static::saving(function($empleo) {
+            $empleo->slug = Str::slug($empleo->titulo);
         });
 
     }

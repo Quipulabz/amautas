@@ -37,6 +37,8 @@ Route::group(['before'=>'guest'], function(){
 Route::get('/', array(
     'as' => '/',
     function() {
+        Redis::set('hello', 'Hola mundo!');
+
         return View::make('hello');
     }
 ));
