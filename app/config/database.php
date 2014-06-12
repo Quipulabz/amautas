@@ -111,7 +111,7 @@ return array(
 
 	'redis' => array(
 
-		'cluster' => false,
+		'cluster' => true,
 
 		'default' => array(
 			'host'     => 'huascar.irsdar.0001.usw1.cache.amazonaws.com',

@@ -1,0 +1,4 @@
+vendor/
+app/storage/
+public/packages/
+.git/

@@ -9,7 +9,7 @@ An amauta was a wisdom teacher in the peruvian ancestral Inca culture and many o
 
 Licence MIT 2014
 
-May the force be whit us!
+...May the force be whit us!
 
 Nick Palomino
 Raul Hugo
