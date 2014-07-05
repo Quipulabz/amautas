@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'pachamama.cxxzqahrfkbu.us-west-1.rds.amazonaws.com',
-			'database'  => 'pachamama',
+			'database'  => 'amautas',
 			'username'  => 'nbpalomino',
 			'password'  => '1234567u',
 			'charset'   => 'utf8',
