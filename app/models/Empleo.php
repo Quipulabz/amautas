@@ -18,6 +18,7 @@ class Empleo extends Eloquent {
 	 */
 	protected $guarded = ['id'];
 
+	protected $softDelete = true;
 
 	/**
 	 * Empleo pertenece a User
@@ -28,7 +29,6 @@ class Empleo extends Eloquent {
     {
         return $this->belongsTo('User');
     }
-
 
 
     public static function boot()

@@ -18,7 +18,7 @@ class EmpleoController extends BaseController {
     */
     public function __construct()
     {
-        $this->beforeFilter('auth', ['only' => ['edit', 'create']]);
+        $this->beforeFilter('auth', ['only' => ['edit', 'create', 'destroy']]);
     }
 
     /**
@@ -28,7 +28,7 @@ class EmpleoController extends BaseController {
      */
     public function index()
     {
-        $empleos = Empleo::where('estado', '=', '1')->with('user')->get();
+        $empleos = Empleo::with('user')->where('estado', 1)->get();
 
         $data['empleos'] = $empleos;
         $data['total_empleos'] = $empleos->count();
@@ -63,12 +63,12 @@ class EmpleoController extends BaseController {
             $empleo->user_id        = Session::get('user');
             $empleo->save();
 
-            Session::flash('mensaje', ['tipo'=>'alert-success', 'mensaje'=>'Se creó correctamente']);
+            Session::flash('mensaje', App::make('mensaje.creacion'));
 
             return Redirect::route('empleos.index');
         }
 
-        Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'Debe ingresar todos los campos']);
+        Session::flash('mensaje', App::make('mensaje.actualizacion'));
 
         return Redirect::route('empleos.create')->withInput();
     }
@@ -102,7 +102,7 @@ class EmpleoController extends BaseController {
         $empleo = Empleo::with('user')->find($id);
 
         if($empleo->user->id != Session::get('user')){
-            Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'No puede editar este empleo']);
+            Session::flash('mensaje', App::make('mensaje.actualizacion.error'));
 
             return Redirect::route('empleos.index');
         }
@@ -131,12 +131,12 @@ class EmpleoController extends BaseController {
             $empleo->descripcion = Input::get('descripcion');
             $empleo->save();
 
-            Session::flash('mensaje', ['tipo'=>'alert-success', 'mensaje'=>'Se actualizó correctamente']);
+            Session::flash('mensaje', App::make('mensaje.actualizacion'));
 
             return Redirect::route('empleos.index');
         }
 
-        Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'Debe ingresar todos los campos']);
+        Session::flash('mensaje', App::make('mensaje.validacion.error'));
 
         return Redirect::route('empleos.edit', $id_slug);
     }
@@ -154,15 +154,15 @@ class EmpleoController extends BaseController {
         $empleo = Empleo::with('user')->find($id);
 
         if($empleo->user->id != Session::get('user')){
-            Session::flash('mensaje', ['tipo'=>'alert-danger', 'mensaje'=>'No puede eliminar este empleo']);
+            Session::flash('mensaje', App::make('mensaje.eliminacion.error'));
 
             return Redirect::route('empleos.edit', $id_slug);
         }
 
         $empleo->estado = 0;
-        $empleo->save();
+        $empleo->delete();
 
-        Session::flash('mensaje', ['tipo'=>'alert-success', 'mensaje'=>'Se eliminó correctamente el empleo :)']);
+        Session::flash('mensaje', App::make('mensaje.eliminacion'));
         return Redirect::route('empleos.index');
     }
 
