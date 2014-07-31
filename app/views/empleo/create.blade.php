@@ -24,6 +24,26 @@
             </div>
         </div>
         <div class="form-group">
+            <!-- {{ Form::label('especialidad', 'Especialidad') }} -->
+            <div class="input-group">
+                <span class="input-group-addon"><span class="fui-new"></span></span>
+                {{ Form::select('especialidad', $especialidades, '', [
+                        'class'         => 'form-control',
+                    ])
+                }}
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- {{ Form::label('especialidad', 'Especialidad') }} -->
+            <div class="input-group">
+                <span class="input-group-addon"><span class="fui-new"></span></span>
+                {{ Form::departamentos('departamento', '', [
+                        'class'         => 'form-control',
+                    ])
+                }}
+            </div>
+        </div>
+        <div class="form-group">
             <!-- {{ Form::label('password', 'Password') }} -->
             <div class="input-group">
                 <span class="input-group-addon"><span class="fui-chat"></span></span>

@@ -16,6 +16,13 @@ class EmpleoController extends BaseController {
     |   Route::get('/', 'HomeController@showWelcome');
     |
     */
+
+    /**
+     * Validaciones para la entidad Empleo
+     */
+    protected $validaciones = ['titulo'=>'required', 'descripcion'=>'required', 'departamento'=>'required', 'especialidad'=>'required'];
+
+
     public function __construct()
     {
         $this->beforeFilter('auth', ['only' => ['edit', 'create', 'destroy']]);
@@ -42,7 +49,20 @@ class EmpleoController extends BaseController {
      */
     public function create()
     {
-        return View::make('empleo.create');
+        $especialidades = Especialidad::get();
+
+        foreach ($especialidades as $especialidad) {
+            $data['especialidades'][$especialidad->id] = $especialidad->nombre;
+        }
+
+        Form::macro('departamentos', function($name, $selected = 0, $options = [])
+        {
+            $countries = [0 => 'Seleccionar'] + Departamento::remember(60)->get()->lists('nombre', 'id');
+
+            return Form::select($name, $countries, $selected, $options);
+        });
+
+        return View::make('empleo.create')->with($data);
     }
 
     /**
@@ -52,7 +72,7 @@ class EmpleoController extends BaseController {
      */
     public function store()
     {
-        $validator = Validator::make(Input::all(), ['titulo'=>'required', 'descripcion'=>'required']);
+        $validator = Validator::make(Input::all(), $this->validaciones);
 
         if ($validator->passes()) {
 
@@ -121,7 +141,7 @@ class EmpleoController extends BaseController {
     {
         list($id, $slug) = explode('--', $id_slug);
 
-        $validator = Validator::make(Input::all(), ['titulo'=>'required', 'descripcion'=>'required']);
+        $validator = Validator::make(Input::all(), $this->validaciones);
 
         if ($validator->passes()) {
 
