@@ -20,7 +20,7 @@ class EmpleoController extends BaseController {
     /**
      * Validaciones para la entidad Empleo
      */
-    protected $validaciones = ['titulo'=>'required', 'descripcion'=>'required', 'departamento'=>'required', 'especialidad'=>'required'];
+    protected $validaciones = ['titulo'=>'required', 'sueldo'=>'required|numeric', 'departamento'=>'required', 'especialidad'=>'required', 'descripcion'=>'required'];
 
 
     public function __construct()
@@ -49,20 +49,7 @@ class EmpleoController extends BaseController {
      */
     public function create()
     {
-        $especialidades = Especialidad::get();
-
-        foreach ($especialidades as $especialidad) {
-            $data['especialidades'][$especialidad->id] = $especialidad->nombre;
-        }
-
-        Form::macro('departamentos', function($name, $selected = 0, $options = [])
-        {
-            $countries = [0 => 'Seleccionar'] + Departamento::remember(60)->get()->lists('nombre', 'id');
-
-            return Form::select($name, $countries, $selected, $options);
-        });
-
-        return View::make('empleo.create')->with($data);
+        return View::make('empleo.create');
     }
 
     /**
@@ -79,6 +66,9 @@ class EmpleoController extends BaseController {
             $empleo = new Empleo;
 
             $empleo->titulo         = Input::get('titulo');
+            $empleo->especialidad_id   = Input::get('especialidad');
+            $empleo->departamento_id   = Input::get('departamento');
+            $empleo->sueldo         = Input::get('sueldo');
             $empleo->descripcion    = Input::get('descripcion');
             $empleo->user_id        = Session::get('user');
             $empleo->save();
@@ -88,9 +78,9 @@ class EmpleoController extends BaseController {
             return Redirect::route('empleos.index');
         }
 
-        Session::flash('mensaje', App::make('mensaje.actualizacion'));
+        Session::flash('mensaje', App::make('mensaje.validacion.error'));
 
-        return Redirect::route('empleos.create')->withInput();
+        return Redirect::route('empleos.create')->withInput()->withErrors($validator);
     }
 
     /**
@@ -147,8 +137,11 @@ class EmpleoController extends BaseController {
 
             $empleo = Empleo::find($id);
 
-            $empleo->titulo      = Input::get('titulo');
-            $empleo->descripcion = Input::get('descripcion');
+            $empleo->titulo         = Input::get('titulo');
+            $empleo->especialidad_id   = Input::get('especialidad');
+            $empleo->departamento_id   = Input::get('departamento');
+            $empleo->sueldo         = Input::get('sueldo');
+            $empleo->descripcion    = Input::get('descripcion');
             $empleo->save();
 
             Session::flash('mensaje', App::make('mensaje.actualizacion'));

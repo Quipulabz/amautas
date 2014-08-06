@@ -45,7 +45,7 @@ class Empleo extends Eloquent {
      *
      * @var User
      */
-    public function Departamento()
+    public function departamento()
     {
         return $this->belongsTo('Departamento');
     }

@@ -24,9 +24,9 @@ App::bind('mensaje.actualizacion', function($app){
 });
 
 App::bind('mensaje.actualizacion.error', function($app){
-    return ['tipo'=>'alert-important', 'mensaje'=>'No puedes actualizar este registro.'];
+    return ['tipo'=>'alert-warning', 'mensaje'=>'No puedes actualizar este registro.'];
 });
 
 App::bind('mensaje.validacion.error', function($app){
-    return ['tipo'=>'alert-important', 'mensaje'=>'El registro tiene campos requeridos.'];
+    return ['tipo'=>'alert-warning', 'mensaje'=>'El registro tiene campos requeridos.'];
 });
