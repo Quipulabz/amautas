@@ -3,6 +3,7 @@
 use Illuminate\Support\MessageBag;
 
 class LoginController extends BaseController {
+
 	/**
 	 * Login view
 	 *

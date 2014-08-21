@@ -19,7 +19,7 @@
                 <div class="input-group">
                     <span class="input-group-addon"><span class="fui-new"></span></span>
                     {{ Form::text('titulo', '', [
-                            'class'         => 'form-control input-lg',
+                            'class'         => 'form-control',
                             'placeholder'   => 'Se necesita docente de comunicación'
                         ])
                     }}
@@ -28,24 +28,24 @@
             <div class="form-group">
                 <!-- {{ Form::label('especialidad', 'Especialidad') }} -->
                 {{ Form::entities('especialidad', 'Especialidad', '', [
-                        'class'         => 'select-flat select select-block',
+                        'class'         => 'js-select select-block',
                     ])
                 }}
             </div>
             <div class="form-group">
                 <!-- {{ Form::label('departamento', 'Departamento') }} -->
                 {{ Form::entities('departamento', 'Departamento', '', [
-                        'class'         => 'select-flat select select-block',
+                        'class'         => 'js-select select-block',
                     ])
                 }}
             </div>
             <div class="form-group">
                 <!-- {{ Form::label('especialidad', 'Especialidad') }} -->
                 <div class="input-group">
-                    <span class="input-group-addon"><span class="fui-mail"></span></span>
+                    <span class="input-group-addon"><strong>S/.</strong></span>
                     {{ Form::text('sueldo', '', [
-                            'class'         => 'form-control input-lg',
-                            'placeholder'   => 'S/. 1,500.00'
+                            'class'         => 'form-control',
+                            'placeholder'   => '1500.00'
                         ])
                     }}
                 </div>
@@ -77,7 +77,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
-    $('select.select-flat').selectpicker({style: 'btn-primary', menuStyle: 'dropdown-inverse'});
+    $('select.js-select').selectpicker({style: 'btn-primary', menuStyle: 'dropdown-inverse'});
 
 });
 </script>

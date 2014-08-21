@@ -15,12 +15,8 @@ class CreateEmpleosTable extends Migration {
         Schema::create('empleo', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('titulo')
-                ->nullable()
-                ->default(null);
-            $table->longText('descripcion')
-                ->nullable()
-                ->default(null);
+            $table->string('titulo');
+            $table->longText('descripcion');
             $table->string('slug')
                 ->nullable()
                 ->default(null);

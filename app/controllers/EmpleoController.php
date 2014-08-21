@@ -61,6 +61,8 @@ class EmpleoController extends BaseController {
     {
         $validator = Validator::make(Input::all(), $this->validaciones);
 
+        var_dump(Input::all());
+
         if ($validator->passes()) {
 
             $empleo = new Empleo;
@@ -173,7 +175,7 @@ class EmpleoController extends BaseController {
         }
 
         $empleo->estado = 0;
-        $empleo->delete();
+        $empleo->softDelete();
 
         Session::flash('mensaje', App::make('mensaje.eliminacion'));
         return Redirect::route('empleos.index');

@@ -21,17 +21,20 @@
     <header id="header">
         @include('layout.navigation')
     </header>
+
+    @if ( Session::has('mensaje') )
+    <div class="alert {{ Session::get('mensaje')['tipo'] }} alert-dismissable text-center">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>{{ Session::get('mensaje')['mensaje'] }}</strong>
+    </div>
+    @endif
+
     <div id="main-container">
         <div class="container">
-            @if ( Session::has('mensaje') )
-                <div class="alert {{ Session::get('mensaje')['tipo'] }} alert-dismissable text-center">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <strong>{{ Session::get('mensaje')['mensaje'] }}</strong>
-                </div>
-            @endif
             @yield('content')
         </div>
     </div>
+
     <footer id="footer">
         @include('layout.footer')
     </footer>

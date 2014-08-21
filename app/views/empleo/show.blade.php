@@ -9,10 +9,11 @@
         <div class="tile tile-hot">
             <img src="{{ URL::asset('packages/Flat-UI/images/icons/svg/clipboard.svg') }}" alt="{{$empleo->titulo}}" class="tile-image">
             <h3 class="tile-title">{{$empleo->titulo}}</h3>
-            <p>{{ $empleo->descripcion }}<br>
+
+            <p>{{ $empleo->descripcion }}</p>
             <span class="label label-primary pull-right">Creado {{$empleo->created_at->diffForHumans()}}</span>
-            </p>
-            @if ($empleo->user->id == Session::get('user'))
+            <hr>
+            @if ($empleo->user_id == Session::get('user'))
                 <a class="btn btn-danger btn-embossed btn-large btn-block" href="{{ route('empleos.edit', $empleo->id.'--'.$empleo->slug ) }}">Editar</a>
             @endif
         </div>

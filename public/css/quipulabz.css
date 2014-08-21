@@ -52,3 +52,8 @@
   padding-top: 1px;
   overflow: hidden;
 }
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: #FFF;
+  background-color: #34495E;
+}

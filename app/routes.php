@@ -20,7 +20,7 @@ Route::group(['before'=>'auth'], function(){
 
     Route::get('/profile', array(
         'as'    => 'user.profile',
-        'uses'  => 'UserController@profileAction'
+        'uses'  => 'UserController@profile'
     ));
 
 });

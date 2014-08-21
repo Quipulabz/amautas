@@ -79,14 +79,18 @@ class UserController extends BaseController {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Shows user profile and posts.
      *
      * @param  int  $id
      * @return Response
      */
     public function profileAction()
     {
-        return View::make('user.profile');
+        $empleos = Empleo::where('user_id', Session::get('user'))->get();
+
+        $data['empleos'] = $empleos;
+
+        return View::make('user.profile')->with($data);
     }
 
 }
