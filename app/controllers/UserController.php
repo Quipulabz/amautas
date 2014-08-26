@@ -84,7 +84,7 @@ class UserController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function profileAction()
+    public function profile()
     {
         $empleos = Empleo::where('user_id', Session::get('user'))->get();
 
