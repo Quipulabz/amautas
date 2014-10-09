@@ -30,3 +30,7 @@ App::bind('mensaje.actualizacion.error', function($app){
 App::bind('mensaje.validacion.error', function($app){
     return ['tipo'=>'alert-warning', 'mensaje'=>'El registro tiene campos requeridos.'];
 });
+
+App::bind('mensaje.login.error', function($app){
+    return ['tipo'=>'alert-danger', 'mensaje'=>'El usuario y/o contraseña es incorrecto.'];
+});

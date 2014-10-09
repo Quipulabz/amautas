@@ -23,6 +23,10 @@ class EspecialidadSeeder extends DatabaseSeeder {
 
         foreach($especialidades as $especialidad) {
 
+            if (Especialidad::where('nombre', $especialidad['nombre'])) {
+                continue;
+            }
+
             Especialidad::create($especialidad);
         };
     }

@@ -31,6 +31,10 @@ class UserSeeder extends DatabaseSeeder {
         );
 
         foreach ($users as $user) {
+
+            if (User::where('email', $user['email'])) {
+                continue;
+            }
             User::create($user);
         };
 

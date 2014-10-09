@@ -33,7 +33,7 @@ class CreateDepartamentoTable extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('departamento');
+        Schema::drop('departamento');
     }
 
 }

@@ -6,7 +6,6 @@
         <div class="text-center">
             <h1>Crear nuevo empleo</h1>
         </div>
-        {{-- var_dump($errors) --}}
 
         {{ Form::open([
                 'route'     => ['empleos.store'],

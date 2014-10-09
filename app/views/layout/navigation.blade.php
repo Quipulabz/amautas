@@ -1,5 +1,5 @@
 <nav class="navbar navbar-static-top navbar-inverse navbar-embossed navbar-lg" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
                 <span class="sr-only">Toggle navigation</span>
@@ -8,9 +8,15 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav">
-                <li {{ preg_match('/empleos/', Route::currentRouteName()) ? 'class="active"' : '' }}><a href="{{ URL::route('empleos.index') }}">Empleos<span class="navbar-new">4</span></a></li>
-                <li {{ Route::currentRouteName() == 'recomendaciones.index' ? 'class="active"' : '' }}><a href="#fakelink">Recomendaciones<span class="navbar-unread"></span></a></li>
-                <li {{ Route::currentRouteName() == 'cursos.index' ? 'class="active"' : '' }}><a href="#fakelink">Cursos</a></li>
+                <li {{ preg_match('/empleos/', Route::currentRouteName()) ? 'class="active"' : '' }}>
+                    <a href="{{ URL::route('empleos.index') }}">Empleos<span class="navbar-new">4</span></a>
+                </li>
+                <li {{ Route::currentRouteName() == 'recomendaciones.index' ? 'class="active"' : '' }}>
+                    <a href="#fakelink">Recomendaciones<span class="navbar-unread"></span></a>
+                </li>
+                <li {{ Route::currentRouteName() == 'cursos.index' ? 'class="active"' : '' }}>
+                    <a href="#fakelink">Cursos</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right ">
                 @if(Auth::check())

@@ -34,22 +34,16 @@ Route::group(['before'=>'guest'], function(){
 
 });
 
-Route::get('/', array(
-    'as' => '/',
-    function() {
-        // $redis = Redis::connection();
-
-        // $redis->set('hello', 'Hola mundo!');
-
-        return View::make('hello');
-    }
-));
-
 Route::post('/login', array(
     'as'    => 'user.login',
     'uses'  => 'LoginController@postLogin'
 ));
 
-// Route::model('empleos', 'Empleo');
+Route::get('/', array(
+    'as' => '/',
+    function() {
+        return View::make('hello');
+    }
+));
 
 Route::resource('empleos', 'EmpleoController');

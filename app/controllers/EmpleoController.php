@@ -35,7 +35,7 @@ class EmpleoController extends BaseController {
      */
     public function index()
     {
-        $empleos = Empleo::with('user')->where('estado', 1)->get();
+        $empleos = Empleo::where('estado', 1)->get();
 
         $data['empleos'] = $empleos;
         $data['total_empleos'] = $empleos->count();
@@ -60,8 +60,6 @@ class EmpleoController extends BaseController {
     public function store()
     {
         $validator = Validator::make(Input::all(), $this->validaciones);
-
-        var_dump(Input::all());
 
         if ($validator->passes()) {
 
@@ -111,9 +109,9 @@ class EmpleoController extends BaseController {
     {
         list($id, $slug) = explode('--', $id_slug);
 
-        $empleo = Empleo::with('user')->find($id);
+        $empleo = Empleo::find($id);
 
-        if($empleo->user->id != Session::get('user')){
+        if($empleo->user_id != Session::get('user')){
             Session::flash('mensaje', App::make('mensaje.actualizacion.error'));
 
             return Redirect::route('empleos.index');
@@ -166,9 +164,9 @@ class EmpleoController extends BaseController {
     {
         list($id, $slug) = explode('--', $id_slug);
 
-        $empleo = Empleo::with('user')->find($id);
+        $empleo = Empleo::find($id);
 
-        if($empleo->user->id != Session::get('user')){
+        if($empleo->user_id != Session::get('user')){
             Session::flash('mensaje', App::make('mensaje.eliminacion.error'));
 
             return Redirect::route('empleos.edit', $id_slug);

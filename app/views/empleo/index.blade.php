@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="todo">
             <div class="todo-search">
               <input class="todo-search-field" type="search" value="" placeholder="Search">
@@ -55,7 +55,7 @@
             </ul>
           </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-lg-8 col-md-8 col-xs-12">
         <h2>Empleos encontrados</h2>
         <ul class="job-list">
         @foreach($empleos as $empleo)
@@ -64,13 +64,9 @@
                     <div class="job-logo" style="background-image: url(http://lorempixel.com/64/64/technics/1)"></div>
 
                     <div class="job-content">
-                        <h4>
-                            {{ str_limit($empleo->titulo, 20, '...') }}
-                        </h4>
-                        <p>
-                            {{ $empleo->descripcion }}
-                        </p>
-                        <span class="label label-default">
+                        <h4>{{ str_limit($empleo->titulo, 20, '...') }}</h4>
+                        <p>{{{ $empleo->descripcion }}}</p>
+                        <span class="label label-success">
                             <span class="fui-calendar-solid"></span>
                             {{ $empleo->created_at->diffForHumans() }}
                         </span>

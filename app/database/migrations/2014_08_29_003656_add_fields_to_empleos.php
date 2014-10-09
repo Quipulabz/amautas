@@ -18,6 +18,14 @@ class AddFieldsToEmpleos extends Migration {
                 ->nullable()
                 ->default(null);
 
+            $table->boolean('sueldo_negociable')->default(1);
+
+            $table->integer('modalidad_id')
+                ->unsigned();
+            $table->foreign('modalidad_id')
+                ->references('id')
+                ->on('modalidad');
+
             // Relaciones
             $table->integer('especialidad_id')
                 ->unsigned();
@@ -43,6 +51,10 @@ class AddFieldsToEmpleos extends Migration {
         Schema::table('empleo', function(Blueprint $table)
         {
             $table->dropColumn('sueldo');
+            $table->dropColumn('sueldo_negociable');
+            $table->dropColumn('especialidad_id');
+            $table->dropColumn('departamento_id');
+            $table->dropColumn('modalidad_id');
         });
     }
 

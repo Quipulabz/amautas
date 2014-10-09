@@ -23,6 +23,10 @@ class DepartamentoSeeder extends DatabaseSeeder {
 
         foreach($departamentos as $departamento) {
 
+            if (Departamento::where('nombre', $departamento['nombre'])) {
+                continue;
+            }
+
             Departamento::create($departamento);
         };
     }
