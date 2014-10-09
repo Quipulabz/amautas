@@ -50,6 +50,16 @@ class Empleo extends Eloquent {
         return $this->belongsTo('Departamento');
     }
 
+    /**
+     * Empleo pertenece tiene una Modalidad
+     *
+     * @var User
+     */
+    public function modalidad()
+    {
+        return $this->belongsTo('Modalidad');
+    }
+
 
     public static function boot()
     {
