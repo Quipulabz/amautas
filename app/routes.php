@@ -46,4 +46,16 @@ Route::get('/', array(
     }
 ));
 
+Route::get('/mailer', array(
+    'as' => 'mailer',
+    function() {
+
+        Mail::send('emails.news', ['ciudad' => 'Trujillo'], function($message) {
+            $message->to('nbpalomino@gmail.com', 'Nick B. Palomino')->subject('Noticias Semanales');
+        });
+
+        return 'Done';
+    }
+));
+
 Route::resource('empleos', 'EmpleoController');
