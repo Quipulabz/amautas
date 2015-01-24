@@ -1,3 +1,5 @@
+@extends('emails.ink.hero')
+
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>

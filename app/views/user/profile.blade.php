@@ -13,8 +13,9 @@
     <div class="col-xs-12 col-md-9 col-lg-9">
         <h4><span class="fui-user"></span> {{ Auth::user()->username }}</h4>
         <h4><span class="fui-mail"></span> {{ Auth::user()->email }}</h4>
+        <h4><span class="fui-mail"></span> {{ Auth::viaRemember() ? 'Verdad' : 'False' }}</h4>
         <h4><span class="fui-time"></span> {{ Auth::user()->created_at->diffForHumans() }}</h4>
-        <h4><span class="fui-time"></span> {{ Session::get('login_date')->diffForHumans() }}</h4>
+        {{-- <h4><span class="fui-time"></span> {{ Session::get('login_date')->diffForHumans() }}</h4> --}}
 
         <div class="panel">
             <ul class="job-list">

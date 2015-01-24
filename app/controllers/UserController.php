@@ -4,6 +4,20 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends BaseController {
 
+
+    private $validaciones = [
+        'email'     =>'required|email|unique:user',
+        'username'  =>'required|alpha_num',
+        'password'  =>'required|confirmed'
+    ];
+
+    private $mensajes = [
+        'email.unique'  => 'El email ya existe',
+        'email'         => 'El email es incorrecto',
+        'required'      => 'Tiene campos requeridos',
+        'confirmed'     => 'Las contraseñas no son iguales',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +35,8 @@ class UserController extends BaseController {
      */
     public function create()
     {
-        //
+        var_dump(Session::get('errors'));
+        return View::make('user.create');
     }
 
     /**
@@ -31,7 +46,30 @@ class UserController extends BaseController {
      */
     public function store()
     {
-        //
+        $validator = Validator::make(Input::all(), $this->validaciones, $this->mensajes);
+
+        if ($validator->passes()) {
+
+            $user = new User;
+
+            $user->username     = Input::get('username');
+            $user->email        = Input::get('email');
+            $user->password     = Hash::make(Input::get('password'));
+            $user->estado       = 1;
+            $user->save();
+
+            Auth::loginUsingId($user->id);
+
+            Session::flash('mensaje', App::make('mensaje.creacion'));
+
+            return Redirect::route('user.profile');
+        }
+
+        $error_mensaje = ['tipo'=>'alert-danger', 'mensaje'=> implode(', ', $validator->messages()->all())];
+
+        Session::flash('mensaje', $error_mensaje);
+
+        return Redirect::route('user.register')->withInput()->withErrors($validator);
     }
 
     /**

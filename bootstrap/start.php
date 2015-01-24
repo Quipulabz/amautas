@@ -26,7 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('your-machine-name'),
+	'local' 		=> array('QuipuLabz'),
+	'production'  	=> array('ip-172-31-1-66')
 
 ));
 

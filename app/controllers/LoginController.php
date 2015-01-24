@@ -4,6 +4,11 @@ use Illuminate\Support\MessageBag;
 
 class LoginController extends BaseController {
 
+    public function __construct()
+    {
+        $this->beforeFilter('csrf', ['only' => ['postLogin']]);
+    }
+
     /**
      * Login view
      *
@@ -21,16 +26,17 @@ class LoginController extends BaseController {
      */
     public function postLogin()
     {
-        $validator = Validator::make(Input::all(), ['username'=>'required', 'password'=>'required']);
+        $validator = Validator::make(Input::all(), ['username'=>'required', 'password'=>'required', 'remember_me'=>'max:2']);
 
         if ($validator->passes()) {
 
             $credentials = [
-                    'username' => Input::get('username'),
-                    'password' => Input::get('password'),
+                    'username'  => Input::get('username'),
+                    'password'  => Input::get('password'),
+                    'estado'    => 1,
                 ];
 
-            if (Auth::attempt($credentials)) {
+            if ( Auth::attempt($credentials, (bool)Input::get('remember_me')) ) {
                 Session::put('user', Auth::user()->id);
                 Session::put('email', Auth::user()->email);
                 Session::put('login_date', Carbon::now());
@@ -41,7 +47,7 @@ class LoginController extends BaseController {
 
         Session::flash('mensaje', App::make('mensaje.login.error'));
 
-        return Redirect::route('user.login')->withInput()->withErrors($validator);
+        return Redirect::route('user.login')->withInput();
     }
 
     /**

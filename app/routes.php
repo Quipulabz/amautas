@@ -11,6 +11,11 @@
 |
 */
 
+// Patrones para las variables requeridas
+Route::pattern('id', '[0-9]+');
+Route::pattern('slug', '[a-z]\-+');
+
+// Filtro Antes => Autorizado
 Route::group(['before'=>'auth'], function(){
 
     Route::get('/logout', array(
@@ -25,11 +30,17 @@ Route::group(['before'=>'auth'], function(){
 
 });
 
+// Filtro Antes => Invitado
 Route::group(['before'=>'guest'], function(){
 
     Route::get('/login', array(
         'as'    => 'user.login',
         'uses'  => 'LoginController@getLogin'
+    ));
+
+    Route::get('/registro', array(
+        'as'    => 'user.register',
+        'uses'  => 'UserController@create'
     ));
 
 });
@@ -41,16 +52,14 @@ Route::post('/login', array(
 
 Route::get('/', array(
     'as' => '/',
-    function() {
-        return View::make('hello');
-    }
+    'uses'  => 'HomeController@getWelcome'
 ));
 
 Route::get('/mailer', array(
     'as' => 'mailer',
     function() {
 
-        Mail::send('emails.news', ['ciudad' => 'Trujillo'], function($message) {
+        Mail::send('emails.respmail.mail', ['ciudad' => 'Trujillo'], function($message) {
             $message->to('nbpalomino@gmail.com', 'Nick B. Palomino')->subject('Noticias Semanales');
         });
 
@@ -59,3 +68,4 @@ Route::get('/mailer', array(
 ));
 
 Route::resource('empleos', 'EmpleoController');
+Route::resource('user', 'UserController');

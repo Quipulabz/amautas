@@ -46,10 +46,20 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
+App::error(function(Illuminate\Session\TokenMismatchException $exception, $code)
+{
+	// Exception lanzada por el token CSRF de los forms
+	Log::error($exception);
+
+	return "Form is invalid. Please reload site maybe have a pishing issues [ERROR : $code]";
+});
+
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
 });
+
+
 
 /*
 |--------------------------------------------------------------------------

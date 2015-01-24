@@ -51,7 +51,7 @@ class Empleo extends Eloquent {
     }
 
     /**
-     * Empleo pertenece tiene una Modalidad
+     * Empleo pertenece una Modalidad
      *
      * @var User
      */
