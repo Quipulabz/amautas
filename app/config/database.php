@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'pachamama.cxxzqahrfkbu.us-west-1.rds.amazonaws.com',
-			'database'  => 'amautas',
-			'username'  => 'nbpalomino',
-			'password'  => '1234567u',
+			'host'      => 'whatdafuck',
+			'database'  => 'whatdafuck',
+			'username'  => 'whatdafuck',
+			'password'  => 'whatdafuck',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -114,7 +114,7 @@ return array(
 		'cluster' => true,
 
 		'default' => array(
-			'host'     => 'huascar.irsdar.0001.usw1.cache.amazonaws.com',
+			'host'     => 'whatdafuck',
 			'port'     => 6379,
 			'database' => 0,
 		),
