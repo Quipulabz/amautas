@@ -4,7 +4,9 @@
 .purple {color: #9B59B6;}
 .green  {color: #2ECC71;}
 
-
+body {
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .job-list {
   background-color: #2c3e50;
   margin: 0;
@@ -64,4 +66,19 @@
 
 footer {
   margin-top: 25px;
+}
+
+.title-divider {
+  background-color: #34495E;
+  height: 2px;
+  width: 80px;
+  margin: 30px auto;
+}
+
+.title-divider-green {
+  background-color: #2ECC71;
+}
+
+.navbar-static-top .navbar-collapse .navbar-nav.navbar-right:last-child > .dropdown:last-child > a {
+  border-radius: 0 0;
 }

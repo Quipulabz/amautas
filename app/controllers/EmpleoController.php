@@ -4,19 +4,6 @@ use Illuminate\Support\MessageBag;
 
 class EmpleoController extends BaseController {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    |   Route::get('/', 'HomeController@showWelcome');
-    |
-    */
-
     /**
      * Validaciones para la entidad Empleo
      */
@@ -86,7 +73,7 @@ class EmpleoController extends BaseController {
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_slug
      * @return Response
      */
     public function show($id_slug)
@@ -102,7 +89,7 @@ class EmpleoController extends BaseController {
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_slug
      * @return Response
      */
     public function edit($id_slug)
@@ -124,7 +111,7 @@ class EmpleoController extends BaseController {
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int  $id_slug
      * @return Response
      */
     public function update($id_slug)
@@ -157,7 +144,7 @@ class EmpleoController extends BaseController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id_slug
      * @return Response
      */
     public function destroy($id_slug)

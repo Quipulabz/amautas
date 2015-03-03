@@ -2,8 +2,11 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-6 col-lg-push-3">
-        <h1 class="text-center">Registro</h1>
+    <div class="col-md-offset-3 col-md-6 col-xs-offset-1 col-xs-10 col-centered">
+        <div class="row">
+            <h2 class="text-center">Registro</h2>
+            <div class="title-divider"></div>
+        </div>
         {{ Form::open([
                 'route'         => 'user.store',
                 'autocomplete'  => 'off'
@@ -14,7 +17,7 @@
                 <span class="input-group-addon"><span class="fui-mail"></span></span>
                 {{ Form::text('email', Input::old('email'), [
                         'class'         => 'form-control',
-                        'placeholder'   => 'amauta@amautas.net'
+                        'placeholder'   => 'Correo electrónico'
                     ])
                 }}
             </div>
@@ -24,7 +27,7 @@
                 <span class="input-group-addon"><span class="fui-user"></span></span>
                 {{ Form::text('username', Input::old('username'), [
                         'class'         => 'form-control',
-                        'placeholder'   => 'amauta'
+                        'placeholder'   => 'Nombre y Apellidos'
                     ])
                 }}
             </div>
@@ -34,7 +37,7 @@
                 <span class="input-group-addon"><span class="fui-lock"></span></span>
                 {{ Form::password('password', [
                         'class'         => 'form-control',
-                        'placeholder'   => '*******'
+                        'placeholder'   => 'Contraseña'
                     ])
                 }}
             </div>
@@ -44,7 +47,7 @@
                 <span class="input-group-addon"><span class="fui-lock"></span></span>
                 {{ Form::password('password_confirmation', [
                         'class'         => 'form-control',
-                        'placeholder'   => '*******'
+                        'placeholder'   => 'Repetir contraseña'
                     ])
                 }}
             </div>
@@ -55,8 +58,11 @@
                 ])
             }}
         </div>
-        <a class="login-link" href="{{ route('user.login') }}">¿Ya estás registrado?</a>
         {{ Form::close() }}
+        <hr/>
+        <div class="form-group">
+            <a class="btn btn-warning btn-block btn-embossed btn-hg"  href="{{ URL::route('user.login') }}"><strong>YA ESTOY REGISTRADO</strong></a>
+        </div>
     </div>
 </div>
 @stop

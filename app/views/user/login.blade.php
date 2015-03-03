@@ -2,8 +2,11 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xs-10 col-xs-push-1 col-md-6 col-md-push-3 col-lg-6 col-lg-push-3">
-        <h1 class="text-center">Acceso</h1>
+    <div class="col-md-offset-3 col-md-6 col-xs-offset-1 col-xs-10 col-centered">
+        <div class="row">
+            <h2 class="text-center">Ingreso</h2>
+            <div class="title-divider"></div>
+        </div>
         {{ Form::open([
                 'route'         => 'user.login',
                 'autocomplete'  => 'off'
@@ -11,7 +14,7 @@
         }}
         <div class="form-group">
             <div class="input-group">
-                <span class="input-group-addon"><span class="fui-user"></span></span>
+                <span class="input-group-addon"><span class="fui-mail"></span></span>
                 {{ Form::text('username', Input::old('username'), [
                         'class'         => 'form-control',
                         'placeholder'   => 'amauta@amautas.net'
@@ -45,8 +48,12 @@
                 Recordarme
             </label>
         </div>
-        <a class="login-link" href="#">¿Perdiste tu contraseña?</a>
+        <a class="login-link" href="#"><strong>¿Perdiste tu contraseña?</strong></a>
         {{ Form::close() }}
+        <hr/>
+        <div class="form-group">
+            <a class="btn btn-warning btn-block btn-embossed btn-hg"  href="{{ URL::route('user.register') }}">¿No tienes una cuenta?<br><strong>REGISTRATE AHORA</strong></a>
+        </div>
     </div>
 </div>
 @stop

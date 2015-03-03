@@ -1,9 +1,7 @@
 <?php
 
-use Illuminate\Support\MessageBag;
 
 class UserController extends BaseController {
-
 
     private $validaciones = [
         'email'     =>'required|email|unique:user',
@@ -35,7 +33,7 @@ class UserController extends BaseController {
      */
     public function create()
     {
-        var_dump(Session::get('errors'));
+        dump(Session::all());
         return View::make('user.create');
     }
 
@@ -119,7 +117,6 @@ class UserController extends BaseController {
     /**
      * Shows user profile and posts.
      *
-     * @param  int  $id
      * @return Response
      */
     public function profile()

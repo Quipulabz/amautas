@@ -1,12 +1,94 @@
+# -- Laravel -----------------------------------------
 /bootstrap/compiled.php
 /vendor
-/app/config/mail.php
-/app/config/database.php
-/.idea
+app/config/mail.php
+app/config/database.php
 /public/packages
-composer.phar
-composer.lock
+**/node_modules
+/node_modules
 .env.local.php
 .env.php
-.DS_Store
+
+# -- Archivos del sistema ----------------------------
+/app/config/database.php
+/app/config/mail.php
+/app/config/queue.php
+/app/config/remote.php
+
+# -- Composer -----------------------------------------
+composer.phar
+
+# -- PHPUnit ------------------------------------------
+# app/phpunit.xml
+
+# -- Editores -----------------------------------------
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.buildpath
+
+# phpstorm
+.idea/
+.phpintel/
+
+# textmate
+*.tmproj
+*.tmproject
+tmtags
+
+# sublimetext
+/*.sublime-project
+*.sublime-workspace
+/sftp-config*.json
+/sftp-config.json
+
+# netbeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# -- Sistemas Operativos ------------------------------
+# Windows
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.*
+!.gitignore
+!.htaccess
+*~
+
+# Mac OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes

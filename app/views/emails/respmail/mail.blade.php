@@ -38,7 +38,7 @@
                                                                                 <td align="left" class="textContent">
                                                                                     <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
                                                                                         The introduction of your message preview goes here. Try to make it short.
-                                                                                        {{ $email_introduccion }}
+                                                                                        {{ $ciudad }}
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>

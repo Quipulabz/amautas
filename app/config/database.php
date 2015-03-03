@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'whatdafuck',
-			'database'  => 'whatdafuck',
-			'username'  => 'whatdafuck',
-			'password'  => 'whatdafuck',
+			'host'      => 'pachamama.cxxzqahrfkbu.us-west-1.rds.amazonaws.com',
+			'database'  => 'amautas',
+			'username'  => 'nbpalomino',
+			'password'  => '1234567u',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -18,12 +18,12 @@ Route::pattern('slug', '[a-z]\-+');
 // Filtro Antes => Autorizado
 Route::group(['before'=>'auth'], function(){
 
-    Route::get('/logout', array(
+    Route::get('/salir', array(
         'as'    => 'user.logout',
         'uses'  => 'LoginController@getLogout'
     ));
 
-    Route::get('/profile', array(
+    Route::get('/perfil', array(
         'as'    => 'user.profile',
         'uses'  => 'UserController@profile'
     ));

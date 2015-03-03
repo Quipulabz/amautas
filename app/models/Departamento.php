@@ -9,13 +9,6 @@ class Departamento extends Eloquent {
      */
     protected $table = 'departamento';
 
-    /**
-     * Estos atributos no se pueden modificar desde el form.
-     *
-     * @var array
-     */
-    protected $guarded = ['id'];
-
     protected $softDelete = true;
 
     /**

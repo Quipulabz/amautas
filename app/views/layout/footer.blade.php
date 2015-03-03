@@ -10,20 +10,17 @@
             <a class="footer-brand" href="http://github.com/Quipulabz/amautas" target="_blank">
                 <img src="http://lorempixel.com/100/45/technics/1" alt="Quipulabz/amautas : Project for teachers">
             </a>
-        </div> <!-- /col-xs-7 -->
-
-        <div class="col-lg-5 col-md-4 col-sm-12">
-            <div class="footer-banner">
-                <h3 class="footer-title">Amautas</h3>
-                <ul>
-                <li>Tons of Basic and Custom UI Elements</li>
-                <li>A Lot of Useful Samples</li>
-                <li>More Vector Icons and Glyphs</li>
-                <li>Pro Color Swatches</li>
-                <li>Bootstrap Based HTML/CSS/JS Layout</li>
-                </ul>
-                Visita: <a href="http://github.com/Quipulabz/amautas" target="_blank">Quipulabz/amautas</a>
-            </div>
+        </div>
+        <div class="col-lg-5 col-md-4 col-sm-12 footer-banner">
+            <h3 class="footer-title">Amautas</h3>
+            <ul>
+            <li>Tons of Basic and Custom UI Elements</li>
+            <li>A Lot of Useful Samples</li>
+            <li>More Vector Icons and Glyphs</li>
+            <li>Pro Color Swatches</li>
+            <li>Bootstrap Based HTML/CSS/JS Layout</li>
+            </ul>
+            Visita: <a href="http://github.com/Quipulabz/amautas" target="_blank">Quipulabz/amautas</a>
         </div>
     </div>
 </div>

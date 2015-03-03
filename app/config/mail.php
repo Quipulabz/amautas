@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'whatdafuck', 'name' => 'whatdafuck'),
+	'from' => array('address' => 'nbpalomino@gmail.com', 'name' => 'Amautas Network'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'whatdafuck',
+	'username' => 'postmaster@sandboxd0ba3b93dcf243b5a1581a09223ddbcb.mailgun.org',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'whatdafuck',
+	'password' => '585a191d3d75321efb98567f3ff8dbb1',
 
 	/*
 	|--------------------------------------------------------------------------

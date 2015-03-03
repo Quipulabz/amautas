@@ -56,7 +56,7 @@ return array(
      |
      */
 
-    'capture_ajax' => false,//true
+    'capture_ajax' => true,//false
 
     /*
      |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
      |
      */
 
-    'capture_console' => false,
+    'capture_console' => true,//false
 
     /*
      |--------------------------------------------------------------------------
@@ -89,13 +89,13 @@ return array(
         'views'           => true,  // Views with their data
         'route'           => true,  // Current route information
         'laravel'         => true,//false, // Laravel version and environment
-        'events'          => false, // All events fired
+        'events'          => true, // All events fired
         'default_request' => false, // Regular or special Symfony request logger
         'symfony_request' => true,  // Only one can be enabled..
         'mail'            => true,  // Catch mail messages
         'logs'            => false, // Add the latest log messages
-        'files'           => false, // Show the included files
-        'config'          => false, // Display config settings
+        'files'           => true, // Show the included files
+        'config'          => true, // Display config settings
         'auth'            => true,//false, // Display Laravel authentication status
     ),
 
@@ -114,10 +114,10 @@ return array(
         ),
         'db' => array(
             'with_params'       => true,   // Render SQL with the parameters substituted
-            'timeline'          => false,   // Add the queries to the timeline
+            'timeline'          => true,   // Add the queries to the timeline
         ),
         'mail' => array(
-            'full_log' => false
+            'full_log' => true
         ),
         'views' => array(
             'data' => false,    //Note: Can slow down the application, because the data can be quite large..

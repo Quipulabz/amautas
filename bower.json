@@ -1,11 +1,15 @@
 {
   "name": "amautas",
-  "version": "0.0.1",
-  "homepage": "https://github.com/Quipulabz/amautas",
+  "version": "0.1.0",
   "authors": [
     "Nick B. Palomino <nbpalomino@gmail.com>"
   ],
-  "description": "An teacher focus job board sistem",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Quipulabz/amautas.git"
+  },
+  "homepage": "https://www.amautas.net",
+  "description": "A job board and educational related news",
   "keywords": [
     "teacher",
     "peru",

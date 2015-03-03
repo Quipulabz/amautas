@@ -9,13 +9,6 @@ class Especialidad extends Eloquent {
      */
     protected $table = 'especialidad';
 
-    /**
-     * Estos atributos no se pueden modificar desde el form.
-     *
-     * @var array
-     */
-    protected $guarded = ['id'];
-
     protected $softDelete = true;
 
     /**

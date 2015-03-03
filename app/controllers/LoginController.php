@@ -4,6 +4,9 @@ use Illuminate\Support\MessageBag;
 
 class LoginController extends BaseController {
 
+    /**
+     * Login construct
+     */
     public function __construct()
     {
         $this->beforeFilter('csrf', ['only' => ['postLogin']]);

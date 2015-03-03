@@ -1,7 +1,5 @@
 <?php
 
-// use Quipulabz\Helper\Slugify;
-
 class Empleo extends Eloquent {
 
     /**
@@ -11,19 +9,11 @@ class Empleo extends Eloquent {
      */
     protected $table = 'empleo';
 
-    /**
-     * Estos atributos no se pueden modificar desde el form.
-     *
-     * @var array
-     */
-    protected $guarded = ['id'];
-
     protected $softDelete = true;
 
     /**
      * Empleo pertenece a User
      *
-     * @var User
      */
     public function user()
     {
@@ -33,7 +23,7 @@ class Empleo extends Eloquent {
     /**
      * Empleo tiene una Especialidad
      *
-     * @var User
+     * @return Especialidad
      */
     public function especialidad()
     {
@@ -43,7 +33,7 @@ class Empleo extends Eloquent {
     /**
      * Empleo pertenece a un Departamento
      *
-     * @var User
+     * @return Departamento
      */
     public function departamento()
     {
@@ -53,14 +43,16 @@ class Empleo extends Eloquent {
     /**
      * Empleo pertenece una Modalidad
      *
-     * @var User
+     * @return Modalidad
      */
     public function modalidad()
     {
         return $this->belongsTo('Modalidad');
     }
 
-
+    /**
+     * Convierte el titulo del Empleo en un Slug
+     */
     public static function boot()
     {
         parent::boot();
@@ -68,6 +60,5 @@ class Empleo extends Eloquent {
         static::saving(function($empleo) {
             $empleo->slug = Str::slug($empleo->titulo);
         });
-
     }
 }
