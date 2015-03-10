@@ -12,6 +12,16 @@ class Departamento extends Eloquent {
     protected $softDelete = true;
 
     /**
+     * Departamento pertenece a un Pais
+     *
+     * @return Pais
+     */
+    public function pais()
+    {
+        return $this->belongsTo('Pais');
+    }
+
+    /**
      * Departamento tiene muchos Empleos
      *
      * @var Empleo
@@ -19,5 +29,15 @@ class Departamento extends Eloquent {
     public function empleo()
     {
         return $this->hasMany('Empleo');
+    }
+
+    /**
+     * Departamento tiene muchos User
+     *
+     * @var User
+     */
+    public function user()
+    {
+        return $this->hasMany('User');
     }
 }

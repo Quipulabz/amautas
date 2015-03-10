@@ -31,6 +31,16 @@ class Empleo extends Eloquent {
     }
 
     /**
+     * Empleo pertenece a un Pais
+     *
+     * @return Pais
+     */
+    public function pais()
+    {
+        return $this->belongsTo('Pais');
+    }
+
+    /**
      * Empleo pertenece a un Departamento
      *
      * @return Departamento

@@ -11,34 +11,51 @@ class UserSeeder extends DatabaseSeeder {
     {
         $users = array(
             array(
-                'username'  => 'nbpalomino',
+                'nombre'    => 'Nick Bryan',
+                'apellido'  => 'Palomino Pérez',
+                'sexo'      => 'M',
+                'es_activo' => 1,
+                'pais_id'   => 1,
+                'departamento_id'   => 2,
+                'especialidad_id'   => 3,
                 'password'  => Hash::make('1234567u'),
                 'email'     => 'nbpalomino@gmail.com',
                 'estado'    => 1
             ),
             array(
-                'username'  => 'malvarez',
+                'nombre'    => 'Miriam Imelda',
+                'apellido'  => 'Alvarez Romero',
+                'sexo'      => 'F',
+                'es_activo' => 0,
+                'pais_id'   => 1,
+                'departamento_id'   => 3,
+                'especialidad_id'   => 2,
                 'password'  => Hash::make('1234567u'),
                 'email'     => 'malvarez@gmail.com',
                 'estado'    => 1
             ),
             array(
-                'username'  => 'raulhugo',
+                'nombre'    => 'Raul',
+                'apellido'  => 'Hugo',
+                'sexo'      => 'M',
+                'es_activo' => 1,
+                'pais_id'   => 1,
+                'departamento_id'   => 4,
+                'especialidad_id'   => 4,
                 'password'  => Hash::make('1234567u'),
-                'email'     => 'raulhugo@gmail.com',
+                'email'     => 'rsasd@gmail.com',
                 'estado'    => 1
             )
         );
 
         foreach ($users as $user) {
 
-            if (User::where('email', $user['email'])) {
+            if ( User::where('email', $user['email'])->count() ) {
                 continue;
             }
             User::create($user);
         };
 
-        // $this->call('UserTableSeeder');
     }
 
 }

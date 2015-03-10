@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-7 col-md-8 col-sm-12">
+        <div class="col-sm-7">
             <h3 class="footer-title">Amautas</h3>
             <p>Do you like this freebie? Want to get more stuff like this?<br>
             Subscribe to designmodo news and updates to stay tuned on great designs.<br>
@@ -11,7 +11,7 @@
                 <img src="http://lorempixel.com/100/45/technics/1" alt="Quipulabz/amautas : Project for teachers">
             </a>
         </div>
-        <div class="col-lg-5 col-md-4 col-sm-12 footer-banner">
+        <div class="col-sm-5 footer-banner">
             <h3 class="footer-title">Amautas</h3>
             <ul>
             <li>Tons of Basic and Custom UI Elements</li>

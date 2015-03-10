@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDepartamentoTable extends Migration {
+class CreateEspecialidadTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateDepartamentoTable extends Migration {
      */
     public function up()
     {
-        Schema::create('departamento', function(Blueprint $table)
+        Schema::create('especialidad', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('nombre');
-            $table->longText('descripcion');;
+            $table->longText('descripcion');
             $table->boolean('estado')
                 ->default(1);
 
@@ -33,7 +33,7 @@ class CreateDepartamentoTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('departamento');
+        Schema::dropIfExists('especialidad');
     }
 
 }

@@ -12,18 +12,18 @@ class DepartamentoSeeder extends DatabaseSeeder {
     public function run()
     {
         $departamentos = [
-            ['nombre'=>'Lima','descripcion'=>'Departamento del perú','estado'=>1],
-            ['nombre'=>'Ancash','descripcion'=>'Departamento del perú','estado'=>1],
-            ['nombre'=>'Cuzco','descripcion'=>'Departamento del perú','estado'=>1],
-            ['nombre'=>'Cajamarca','descripcion'=>'Departamento del perú','estado'=>1],
-            ['nombre'=>'Tacna','descripcion'=>'Departamento del perú','estado'=>1],
-            ['nombre'=>'Puno','descripcion'=>'Departamento del perú','estado'=>1],
-            ['nombre'=>'Ica','descripcion'=>'Departamento del perú','estado'=>1]
+            ['nombre'=>'Lima','descripcion'=>'Departamento del perú','estado'=>1, 'pais_id'=>1],
+            ['nombre'=>'Ancash','descripcion'=>'Departamento del perú','estado'=>1, 'pais_id'=>1],
+            ['nombre'=>'Cuzco','descripcion'=>'Departamento del perú','estado'=>1, 'pais_id'=>1],
+            ['nombre'=>'Cajamarca','descripcion'=>'Departamento del perú','estado'=>1, 'pais_id'=>1],
+            ['nombre'=>'Tacna','descripcion'=>'Departamento del perú','estado'=>1, 'pais_id'=>1],
+            ['nombre'=>'Puno','descripcion'=>'Departamento del perú','estado'=>1, 'pais_id'=>1],
+            ['nombre'=>'Ica','descripcion'=>'Departamento del perú','estado'=>1, 'pais_id'=>1]
         ];
 
         foreach($departamentos as $departamento) {
 
-            if (Departamento::where('nombre', $departamento['nombre'])) {
+            if ( Departamento::where('nombre', $departamento['nombre'])->count() ) {
                 continue;
             }
 

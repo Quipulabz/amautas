@@ -94,4 +94,34 @@ class User extends Eloquent implements UserInterface, RemindableInterface
         return $this->hasMany('Empleo');
     }
 
+    /**
+     * Usuario pertenece a un Pais
+     *
+     * @return Pais
+     */
+    public function pais()
+    {
+        return $this->belongsTo('Pais');
+    }
+
+    /**
+     * Usuario pertenece a un Departamento
+     *
+     * @return Departamento
+     */
+    public function departamento()
+    {
+        return $this->belongsTo('Departamento');
+    }
+
+    /**
+     * Usuario tiene una Especialidad
+     *
+     * @return Especialidad
+     */
+    public function especialidad()
+    {
+        return $this->belongsTo('Especialidad');
+    }
+
 }

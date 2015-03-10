@@ -22,7 +22,7 @@ class EmpleoController extends BaseController {
      */
     public function index()
     {
-        $empleos = Empleo::where('estado', 1)->get();
+        $empleos = Empleo::where('estado', 1)->where('publicado', 1)->get();
 
         $data['empleos'] = $empleos;
         $data['total_empleos'] = $empleos->count();

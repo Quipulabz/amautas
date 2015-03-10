@@ -20,7 +20,7 @@ class ModalidadSeeder extends DatabaseSeeder {
 
         foreach($modalidades as $modalidad) {
 
-            if (Modalidad::where('nombre', $modalidad['nombre'])) {
+            if ( Modalidad::where('nombre', $modalidad['nombre'])->count() ) {
                 continue;
             }
             Modalidad::create($modalidad);

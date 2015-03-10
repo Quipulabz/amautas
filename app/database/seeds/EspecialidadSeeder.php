@@ -23,7 +23,7 @@ class EspecialidadSeeder extends DatabaseSeeder {
 
         foreach($especialidades as $especialidad) {
 
-            if (Especialidad::where('nombre', $especialidad['nombre'])) {
+            if ( Especialidad::where('nombre', $especialidad['nombre'])->count() ) {
                 continue;
             }
 

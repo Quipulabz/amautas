@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmpleosTable extends Migration {
+class CreateDepartamentoTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,23 +12,20 @@ class CreateEmpleosTable extends Migration {
      */
     public function up()
     {
-        Schema::create('empleo', function(Blueprint $table)
+        Schema::create('departamento', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('titulo');
+            $table->string('nombre');
             $table->longText('descripcion');
-            $table->string('slug')
-                ->nullable()
-                ->default(null);
             $table->boolean('estado')
                 ->default(1);
 
             // Relaciones
-            $table->integer('user_id')
+            $table->integer('pais_id')
                 ->unsigned();
-            $table->foreign('user_id')
+            $table->foreign('pais_id')
                 ->references('id')
-                ->on('user');
+                ->on('pais');
 
             // Fechas
             $table->timestamps();
@@ -43,7 +40,7 @@ class CreateEmpleosTable extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('empleo');
+        Schema::dropIfExists('departamento');
     }
 
 }

@@ -1,5 +1,5 @@
-
-<nav class="navbar navbar-inverse navbar-embossed navbar-lg" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top navbar-embossed navbar-lg" role="navigation">
+<div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -22,7 +22,7 @@
             @if(Auth::check())
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->username }}<span class="caret"></span>
+                        {{ Auth::user()->nombre }}<span class="caret"></span>
                     </a>
                     <span class="dropdown-arrow dropdown-arrow-inverse"></span>
                     <ul class="dropdown-menu">
@@ -40,4 +40,5 @@
             @endif
         </ul>
     </div><!-- /.navbar-collapse -->
+</div>
 </nav><!-- /navbar -->

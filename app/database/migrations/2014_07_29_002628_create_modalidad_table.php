@@ -18,7 +18,10 @@ class CreateModalidadTable extends Migration {
 			$table->string('nombre');
 			$table->text('descripcion');
 			$table->boolean('estado')->default(1);
+
+			// Fechas
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

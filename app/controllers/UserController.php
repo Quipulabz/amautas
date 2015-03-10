@@ -123,7 +123,10 @@ class UserController extends BaseController {
     {
         $empleos = Empleo::where('user_id', Session::get('user'))->get();
 
-        $data['empleos'] = $empleos;
+        $pais = Pais::find(1);
+
+        $data['empleos']    = $empleos;
+        $data['pais']       = $pais;
 
         return View::make('user.profile')->with($data);
     }

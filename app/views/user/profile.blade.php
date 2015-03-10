@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xs-12 col-md-3 col-lg-3 sidebar" id="sidebar">
+    <div class="col-sm-3 col-lg-4 sidebar" id="sidebar">
         <ul class="nav nav-sidebar">
             <li class="active"><a href="#"><span class="fui-user"></span> Perfil</a></li>
             <li><a href="#"><span class="fui-new"></span> Anuncios</a></li>
@@ -10,11 +10,13 @@
         </ul>
     </div>
 
-    <div class="col-xs-12 col-md-9 col-lg-9">
-        <h4><span class="fui-user"></span> {{ Auth::user()->username }}</h4>
+    <div class="col-sm-9 col-lg-8">
+        {{ dump(Auth::user()) }}
+        <h4><span class="fui-user"></span> {{ Auth::user()->nombre .' '. Auth::user()->apellido }}</h4>
         <h4><span class="fui-mail"></span> {{ Auth::user()->email }}</h4>
-        <h4><span class="fui-mail"></span> {{ Auth::viaRemember() ? 'Verdad' : 'False' }}</h4>
-        <h4><span class="fui-time"></span> {{ Auth::user()->created_at->diffForHumans() }}</h4>
+        <h4><span class="glyphicon glyphicon-certificate"></span> {{ Auth::user()->pais->nombre }}</h4>
+        <h4><span class="glyphicon glyphicon-check"></span> {{ Auth::user()->especialidad->nombre }}</h4>
+        <h4><span class="glyphicon glyphicon-leaf "></span> {{ Auth::user()->departamento->nombre }}</h4>
         {{-- <h4><span class="fui-time"></span> {{ Session::get('login_date')->diffForHumans() }}</h4> --}}
 
         <div class="panel">

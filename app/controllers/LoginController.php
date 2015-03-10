@@ -34,9 +34,10 @@ class LoginController extends BaseController {
         if ($validator->passes()) {
 
             $credentials = [
-                    'username'  => Input::get('username'),
+                    'email'     => Input::get('username'),
                     'password'  => Input::get('password'),
                     'estado'    => 1,
+                    'es_activo' => 1, // Enviar mensaje de confirmar Email
                 ];
 
             if ( Auth::attempt($credentials, (bool)Input::get('remember_me')) ) {
