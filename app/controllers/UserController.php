@@ -5,7 +5,7 @@ class UserController extends BaseController {
 
     private $validaciones = [
         'email'     =>'required|email|unique:user',
-        'username'  =>'required|alpha_num',
+        'username'  =>'required',
         'password'  =>'required|confirmed'
     ];
 
@@ -33,7 +33,7 @@ class UserController extends BaseController {
      */
     public function create()
     {
-        dump(Session::all());
+        var_dump(Session::all());
         return View::make('user.create');
     }
 

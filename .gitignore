@@ -3,17 +3,24 @@
 /vendor
 app/config/mail.php
 app/config/database.php
+app/database/production.sqlite
 /public/packages
 **/node_modules
 /node_modules
 .env.local.php
 .env.php
 
+# -- Archivos del Proyecto ---------------------------
+/public/css/*
+/public/js/*
+/public/fonts/*
+/public/images/*
+
 # -- Archivos del sistema ----------------------------
-/app/config/database.php
-/app/config/mail.php
-/app/config/queue.php
-/app/config/remote.php
+#/app/config/database.php
+#/app/config/mail.php
+#/app/config/queue.php
+#/app/config/remote.php
 
 # -- Composer -----------------------------------------
 composer.phar

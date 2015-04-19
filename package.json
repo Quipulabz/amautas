@@ -1,0 +1,34 @@
+{
+  "name": "amautas",
+  "version": "0.1.0",
+  "description": "A job board and educational related news",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Quipulabz/amautas.git"
+  },
+  "keywords": [
+    "laravel",
+    "amautas",
+    "php"
+  ],
+  "author": "Nick B. Palomino <nbpalomino@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://www.amautas.net",
+  "dependencies": {
+    "gulp-concat": "^2.4.1",
+    "gulp-minify": "^0.0.5",
+    "gulp-minify-css": "^0.3.10",
+    "gulp-rename": "^1.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "bower": "^1.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Quipulabz/amautas/issues"
+  }
+}
