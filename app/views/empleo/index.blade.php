@@ -60,7 +60,7 @@
         <ul class="job-list">
         @foreach($empleos as $empleo)
             <li class="">
-                <a href="{{ route('empleos.show', $empleo->id.'--'.$empleo->slug ) }}" title="Oferta de empleo: {{ $empleo->titulo }}">
+                <a href="{{ route('empleos.show', ['id'=>$empleo->id, 'slug'=>$empleo->slug] ) }}" title="Oferta de empleo: {{ $empleo->titulo }}">
                     <div class="job-logo" style="background-image: url(http://lorempixel.com/64/64/technics/1)"></div>
 
                     <div class="job-content">

@@ -11,6 +11,7 @@
 |
 */
 
+Dotenv::load(__DIR__.'/../');
 $app = new Illuminate\Foundation\Application;
 
 /*
@@ -26,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' 		=> array('QuipuLabz'),
+	'local' 		=> array('QuipuLabz', 'Wiracocha'),
 	'production'  	=> array('ip-172-31-1-66', 'ip-172-31-21-179')
 
 ));

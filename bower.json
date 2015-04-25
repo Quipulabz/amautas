@@ -26,6 +26,6 @@
     "tests"
   ],
   "dependencies": {
-    "flat-ui": "~2.1.3"
+    "flat-ui": "~2.2"
   }
 }

@@ -13,7 +13,7 @@
 
 // Patrones para las variables requeridas
 Route::pattern('id', '[0-9]+');
-Route::pattern('slug', '[a-z]\-+');
+//Route::pattern('slug', '[a-z]\-+');
 
 // Filtro Antes => Autorizado
 Route::group(['before'=>'auth'], function(){
@@ -67,5 +67,62 @@ Route::get('/mailer', array(
     }
 ));
 
-Route::resource('empleos', 'EmpleoController');
+// Route::resource('empleos', 'EmpleoController');
+Route::group(['prefix' => '/empleos'], function()
+{
+    $rutas = [
+        //[Verbo,  Metodo,       URL]
+        ['get',    'index',     '/'],
+        ['get',    'create',    '/create'],
+        ['post',   'store',     '/'],        
+        ['get',    'edit',      '/{id}/{slug}/edit'],
+        ['put',    'update',    '/{id}/{slug}'],
+        ['get',    'show',      '/{id}/{slug}'],
+        ['delete', 'destroy',   '/{id}/{slug}'],
+    ];
+
+    foreach ( $rutas as list($verb, $method, $uri) ) {
+        Route::$verb($uri, [
+            'as'    => "empleos.{$method}",
+            'uses'  => "EmpleoController@{$method}"
+        ]);
+    }
+    /*
+    Route::get('/', [
+        'as'    => 'empleos.index',
+        'uses'  => 'EmpleoController@index'
+    ]);
+
+    Route::get('/create', [
+        'as'    => 'empleos.create',
+        'uses'  => 'EmpleoController@create'
+    ]);
+
+    Route::post('/', [
+        'as'    => 'empleos.store',
+        'uses'  => 'EmpleoController@store'
+    ]);    
+
+    Route::get('/{id}/{slug}/edit', [
+        'as'    => 'empleos.edit',
+        'uses'  => 'EmpleoController@edit'
+    ]);
+
+    Route::put('/{id}/{slug}', [
+        'as'    => 'empleos.update',
+        'uses'  => 'EmpleoController@update'
+    ]);
+
+    Route::get('/{id}/{slug}', [
+        'as'    => 'empleos.show',
+        'uses'  => 'EmpleoController@show'
+    ]);
+
+    Route::delete('/{id}/{slug}', [
+        'as'    => 'empleos.destroy',
+        'uses'  => 'EmpleoController@destroy'
+    ]);
+    */
+});
+
 Route::resource('user', 'UserController');

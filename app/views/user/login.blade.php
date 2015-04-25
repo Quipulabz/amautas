@@ -39,12 +39,13 @@
             }}
         </div>
         <div class="form-group">
-            <label class="checkbox {{ Input::old('remember_me') ? 'checked' : '' }}">
-                <span class="icons">
-                    <span class="first-icon fui-checkbox-unchecked"></span>
-                    <span class="second-icon fui-checkbox-checked"></span>
-                </span>
-                {{ Form::checkbox('remember_me', Input::old('remember_me')) }}
+            <label class="checkbox {{ Input::old('remember_me') ? 'checked' : '' }}" for="checkbox">                
+                {{ Form::checkbox('remember_me', 'on', Input::old('remember_me'), [
+                        'id'    => 'checkbox',
+                        'class' => 'custom-checkbox',
+                        'data-toggle' => 'checkbox'
+                    ]) 
+                }}
                 Recordarme
             </label>
         </div>

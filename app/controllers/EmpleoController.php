@@ -76,9 +76,10 @@ class EmpleoController extends BaseController {
      * @param  int  $id_slug
      * @return Response
      */
-    public function show($id_slug)
+    public function show($id, $slug)
     {
-        list($id, $slug) = explode('--', $id_slug);
+        //dump($id, $slug);
+        // list($id, $slug) = explode('--', $id_slug);
 
         $empleo = Empleo::with('user')->find($id);
 
@@ -92,9 +93,9 @@ class EmpleoController extends BaseController {
      * @param  int  $id_slug
      * @return Response
      */
-    public function edit($id_slug)
+    public function edit($id, $slug)
     {
-        list($id, $slug) = explode('--', $id_slug);
+        // list($id, $slug) = explode('--', $id_slug);
 
         $empleo = Empleo::find($id);
 
@@ -114,9 +115,9 @@ class EmpleoController extends BaseController {
      * @param  int  $id_slug
      * @return Response
      */
-    public function update($id_slug)
+    public function update($id, $slug)
     {
-        list($id, $slug) = explode('--', $id_slug);
+        // list($id, $slug) = explode('--', $id_slug);
 
         $validator = Validator::make(Input::all(), $this->validaciones);
 
@@ -147,9 +148,9 @@ class EmpleoController extends BaseController {
      * @param  int  $id_slug
      * @return Response
      */
-    public function destroy($id_slug)
+    public function destroy($id, $slug)
     {
-        list($id, $slug) = explode('--', $id_slug);
+        // list($id, $slug) = explode('--', $id_slug);
 
         $empleo = Empleo::find($id);
 
