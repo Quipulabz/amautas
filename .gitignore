@@ -7,8 +7,7 @@ app/database/production.sqlite
 /public/packages
 **/node_modules
 /node_modules
-.env.local.php
-.env.php
+.env
 
 # -- Archivos del Proyecto ---------------------------
 /public/css/*

@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'kOR7fB7gpVdcVXdCNE90H3f6OW8X4IBN',
+	'key' => getenv('APP_KEY'),
 
 	/*
 	|--------------------------------------------------------------------------

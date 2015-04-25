@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'nbpalomino@gmail.com', 'name' => 'Amautas Network'),
+	'from' => array('address' => getenv('MAIL_ADDRESS'), 'name' => getenv('MAIL_NAME')),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'postmaster@sandboxd0ba3b93dcf243b5a1581a09223ddbcb.mailgun.org',
+	'username' => getenv('MAIL_USERNAME'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => '585a191d3d75321efb98567f3ff8dbb1',
+	'password' => getenv('MAIL_PASSWORD'),
 
 	/*
 	|--------------------------------------------------------------------------
