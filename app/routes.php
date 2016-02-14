@@ -52,7 +52,7 @@ Route::post('/login', array(
 
 Route::get('/', array(
     'as' => '/',
-    'uses'  => 'HomeController@getWelcome'
+    'uses'  => 'HomeController@getLanding'
 ));
 
 Route::get('/mailer', array(
@@ -74,7 +74,7 @@ Route::group(['prefix' => '/empleos'], function()
         //[Verbo,  Metodo,       URL]
         ['get',    'index',     '/'],
         ['get',    'create',    '/create'],
-        ['post',   'store',     '/'],        
+        ['post',   'store',     '/'],
         ['get',    'edit',      '/{id}/{slug}/edit'],
         ['put',    'update',    '/{id}/{slug}'],
         ['get',    'show',      '/{id}/{slug}'],
@@ -101,7 +101,7 @@ Route::group(['prefix' => '/empleos'], function()
     Route::post('/', [
         'as'    => 'empleos.store',
         'uses'  => 'EmpleoController@store'
-    ]);    
+    ]);
 
     Route::get('/{id}/{slug}/edit', [
         'as'    => 'empleos.edit',

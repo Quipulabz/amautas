@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' 		=> array('QuipuLabz', 'Wiracocha'),
+	'local' 		=> array('QuipuLabz', 'Wiracocha', 'Ultron'),
 	'production'  	=> array('ip-172-31-1-66', 'ip-172-31-21-179')
 
 ));

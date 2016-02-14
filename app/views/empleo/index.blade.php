@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="jumbotron">
-        <h1>Empleos<h1>
+        <h1>Empleos</h1>
         <h4 class="lead">Hoy tenemos {{ $total_empleos ? : 0 }} empleos disponibles para ti</h4>
         <a class="btn btn-success btn-embossed btn-hg" role="button" href="{{ route('empleos.create') }}">Crear nuevos empleos</a>
     </div>

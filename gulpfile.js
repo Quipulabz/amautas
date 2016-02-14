@@ -1,7 +1,8 @@
 var gulp        = require('gulp'),
-    minifyCss   = require('gulp-minify-css'),
+    minifyCss   = require('gulp-cssnano'),
     minifyJs    = require('gulp-minify'),
     concat      = require('gulp-concat'),
+    livereload  = require('gulp-livereload'),
     rename      = require('gulp-rename');
 
 gulp.task('minify-css', function(error, f, b) {
@@ -9,7 +10,7 @@ gulp.task('minify-css', function(error, f, b) {
         'public/packages/flat-ui/bootstrap/css/bootstrap.css',
         'public/packages/flat-ui/css/flat-ui.css',
         'public/css/quipulabz.css',
-    ]
+    ];
 
     gulp.src(files)
         .pipe(concat('flat-ui.min.css'))
@@ -21,7 +22,6 @@ gulp.task('copy-fonts', function(error, f, b) {
 
     gulp.src('public/packages/flat-ui/fonts/**/*')
         .pipe(gulp.dest('./public/fonts'));
-
 });
 
 gulp.task('copy-images', function(error, f, b) {
@@ -45,13 +45,22 @@ gulp.task('minify-js', function(error, f, b) {
         'public/packages/flat-ui/js/jquery.tagsinput.js',
         'public/packages/flat-ui/js/typeahead.js',
         'public/packages/flat-ui/js/application.js'
-    ]
+    ];
 
     gulp.src(files)
         .pipe(concat('flat-ui.js'))
         .pipe(minifyJs())
         .pipe(gulp.dest('./public/js'));
-
 });
 
-gulp.task('default', ['minify-css', 'copy-fonts', 'copy-images', 'minify-js']);
+gulp.task('php', function(){
+   gulp.src('app/**/*.php')
+       .pipe(livereload());
+});
+
+gulp.task('livereload', function(error,f,b){
+    gulp.watch('app/**/*.php', ['php']);
+    livereload.listen();
+});
+
+gulp.task('default', ['minify-css', 'copy-fonts', 'copy-images', 'minify-js', 'livereload']);

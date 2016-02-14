@@ -26,6 +26,7 @@
     "tests"
   ],
   "dependencies": {
-    "flat-ui": "~2.2"
+    "flat-ui": "~2.2",
+    "vue": "~1.0.16"
   }
 }
