@@ -23,7 +23,6 @@ class HomeController extends BaseController {
     public function getLanding()
     {
         $data['title'] = "Amautas";
-        $data['subtitle'] = "weq";
         return View::make('landing', $data);
     }
 
