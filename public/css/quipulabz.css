@@ -101,3 +101,13 @@ footer {
   50% { opacity:0; }
   100% { opacity:1; }
 }
+
+.jumbotron {
+  background-image: url('../images/books-n-shoes.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgba(54, 25, 25, .5);
+  -ms-filter: alpha(opacity=50);
+  filter: alpha(opacity=60);
+}
