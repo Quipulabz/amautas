@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Amautas | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-@if( App::isLocal() )
+@if( !App::isLocal() )
     <!-- Loading Bootstrap -->
     <link rel="stylesheet" href="{{ URL::asset('packages/flat-ui/dist/css/vendor/bootstrap.min.css') }}">
     <!-- Loading Flat UI -->
@@ -47,14 +47,14 @@
     </footer>
     @show
 
-@if( App::isLocal() )
+@if( !App::isLocal() )
     <script src="{{ URL::asset('packages/flat-ui/dist/js/vendor/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('packages/flat-ui/dist/js/vendor/video.js') }}"></script>
     <script src="{{ URL::asset('packages/flat-ui/dist/js/flat-ui.min.js') }}"></script>
     <script src="{{ URL::asset('packages/flat-ui/js/radiocheck.js') }}"></script>
     <script src="{{ URL::asset('js/quipulabz.js') }}"></script>
 @else
-    <script src="{{ URL::asset('js/flat-ui-min.js') }}?v=0.1"></script>
+    <script src="{{ URL::asset('js/flat-ui.min.js') }}?v=0.1"></script>
 @endif
     {{--CDN Libraries--}}
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->

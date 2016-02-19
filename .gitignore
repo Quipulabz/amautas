@@ -12,7 +12,7 @@ app/database/production.sqlite
 # -- Archivos del Proyecto ---------------------------
 /public/css/*.min.css
 /public/js/*.min.js
-#/public/fonts/*
+/public/fonts/*
 #/public/images/*
 
 # -- Archivos del sistema ----------------------------

@@ -7,8 +7,8 @@ var gulp        = require('gulp'),
 
 gulp.task('minify-css', function(error, f, b) {
     var files = [
-        'public/packages/flat-ui/bootstrap/css/bootstrap.css',
-        'public/packages/flat-ui/css/flat-ui.css',
+        'public/packages/flat-ui/dist/css/vendor/bootstrap.min.css',
+        'public/packages/flat-ui/dist/css/flat-ui.min.css',
         'public/css/quipulabz.css',
     ];
 
@@ -33,22 +33,16 @@ gulp.task('copy-images', function(error, f, b) {
 
 gulp.task('minify-js', function(error, f, b) {
     var files = [
-        'public/packages/flat-ui/js/jquery-1.10.2.min.js',
-        'public/packages/flat-ui/js/jquery-ui-1.10.3.custom.min.js',
-        'public/packages/flat-ui/js/jquery.ui.touch-punch.min.js',
-        'public/packages/flat-ui/js/bootstrap.min.js',
-        'public/packages/flat-ui/js/bootstrap-select.js',
-        'public/packages/flat-ui/js/bootstrap-switch.js',
-        'public/packages/flat-ui/js/flatui-checkbox.js',
-        'public/packages/flat-ui/js/flatui-radio.js',
-        'public/packages/flat-ui/js/jquery.placeholder.js',
-        'public/packages/flat-ui/js/jquery.tagsinput.js',
-        'public/packages/flat-ui/js/typeahead.js',
-        'public/packages/flat-ui/js/application.js'
+        'public/packages/flat-ui/dist/js/vendor/jquery.min.js',
+        'public/packages/flat-ui/dist/js/vendor/video.js',
+        'public/packages/flat-ui/dist/js/flat-ui.min.js',
+        'public/packages/flat-ui/js/radiocheck.js',
+        'public/packages/typed.js/dist/js/typed.min.js',
+        'public/packages/vue/dist/vue.min.js',
     ];
 
     gulp.src(files)
-        .pipe(concat('flat-ui.js'))
+        .pipe(concat('flat-ui.min.js'))
         .pipe(minifyJs())
         .pipe(gulp.dest('./public/js'));
 });
@@ -63,4 +57,4 @@ gulp.task('livereload', function(error,f,b){
     livereload.listen();
 });
 
-gulp.task('default', ['minify-css', 'copy-fonts', 'copy-images', 'minify-js', 'livereload']);
+gulp.task('default', ['minify-css', 'copy-fonts', 'copy-images', 'minify-js']);
