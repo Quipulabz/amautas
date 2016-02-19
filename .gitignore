@@ -10,10 +10,10 @@ app/database/production.sqlite
 .env
 
 # -- Archivos del Proyecto ---------------------------
-/public/css/*
-/public/js/*
-/public/fonts/*
-/public/images/*
+/public/css/*.min.css
+/public/js/*.min.js
+#/public/fonts/*
+#/public/images/*
 
 # -- Archivos del sistema ----------------------------
 #/app/config/database.php
